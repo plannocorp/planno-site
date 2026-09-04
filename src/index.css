@@ -1,111 +1,177 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    --black-background: #080911;
+    --blue-background: #122033;
+    --black: #000;
+    --darkgray: #18181b;
+    --gray: #303030;
+    --white: #FAFAFA;
+    --darkblue: #1d375c;
+    --mainblue: #4b6c9f;
+    --lightblue: #93a8c6;
+    --shadow: #00000030;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+    /* Variáveis complementares */
+    --cta-gradient: linear-gradient(135deg, #6579ff, #3f58d2);
+    --cta-glow: rgba(75, 108, 255, 0.38);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    list-style: none;
+    text-decoration: none;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+html, body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: var(--black-background);
+    color: var(--white);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-body {
-  margin: 0;
+button, input, textarea, select {
+    font-family: inherit;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+::-webkit-scrollbar {
+    background-color: var(--black-background);
+    width: 10px;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+::-webkit-scrollbar-thumb {
+    background-color: var(--mainblue);
+    border-radius: 20px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+/* Animações Gerais */
+
+.delay-0 { transition-delay: 0s; }
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+/* Up Animation */
+.hidden-up {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(200px);
+    transition: all 1.5s ease;
+}
+
+.show-up {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    transition: all 1.5s ease;
+}
+
+/* Left to Right Animation */
+.hidden-ltr {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-50px);
+    transition: all 1.5s ease;
+}
+
+.show-ltr {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 1.5s ease;
+}
+
+/* Right to Left Animation */
+.hidden-rtl {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(50px);
+    transition: all 1.5s ease;
+}
+
+.show-rtl {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 1.5s ease;
+}
+
+/* Appears Animation */
+.hidden-ap {
+    opacity: 0;
+    transition: all 1.5s ease;
+}
+
+.show-ap {
+    opacity: 1;
+    transition: all 1.5s ease;
+}
+
+/* --- Classes Utilitárias Globais --- */
+
+.section-badge {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 8px;
+  background-color: var(--blue-background);
+  color: var(--mainblue);
+  border: 1px solid var(--darkblue);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.section-badge i {
+  font-size: 0.5rem;
+  animation: pulse-badge 2s infinite;
+}
+
+.section-badge.negative {
+  color: #ff5252;
+  border-color: rgba(255, 82, 82, 0.2);
+  background-color: rgba(255, 82, 82, 0.05);
+}
+
+.section-badge.positive {
+  color: #4caf50;
+  border-color: rgba(76, 175, 80, 0.2);
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.btn-whatsapp-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-whatsapp-hover:hover {
+  background-color: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+main {
+  padding-top: 84px;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    padding-top: 72px;
+  }
 }
