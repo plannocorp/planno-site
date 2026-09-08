@@ -1,0 +1,104 @@
+.como-funciona {
+  width: 100%;
+  background-color: var(--black-background);
+  border-top: 1px solid rgba(147, 168, 198, 0.08);
+  padding: 96px 0 108px;
+}
+
+.como-funciona-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.como-funciona-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.como-funciona-title {
+  color: var(--white);
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+
+/* Grid com 4 colunas no Desktop */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.step-card {
+  position: relative;
+  background: rgba(24, 24, 27, 0.5);
+  border: 1px solid rgba(147, 168, 198, 0.1);
+  border-radius: 20px;
+  padding: 42px 28px 36px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  background: rgba(24, 24, 27, 0.8);
+  border-color: rgba(75, 108, 159, 0.4);
+}
+
+/* Número gigante decorativo */
+.step-num {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: rgba(75, 108, 159, 0.18);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.step-title {
+  color: var(--white);
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+.step-description {
+  color: var(--lightblue);
+  font-size: 14px;
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .como-funciona {
+    padding: 64px 0 80px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    padding: 36px 24px 30px;
+  }
+}
