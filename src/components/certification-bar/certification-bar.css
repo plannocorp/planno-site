@@ -1,0 +1,77 @@
+.certification-bar {
+  width: 100%;
+  background: rgba(18, 32, 51, 0.45);
+  border-top: 1px solid rgba(147, 168, 198, 0.1);
+  border-bottom: 1px solid rgba(147, 168, 198, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 18px 0;
+}
+
+.certification-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.certification-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--lightblue);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.certification-item:hover {
+  color: var(--white);
+}
+
+.certification-icon {
+  font-size: 16px;
+  color: var(--mainblue);
+  transition: transform 0.3s ease;
+}
+
+.certification-item:hover .certification-icon {
+  transform: scale(1.15);
+  color: var(--lightblue);
+}
+
+.certification-text {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 960px) {
+  .certification-container {
+    justify-content: center;
+    gap: 20px 32px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .certification-bar {
+    padding: 16px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .certification-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .certification-container {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0 24px;
+    width: max-content;
+    gap: 28px;
+  }
+}
