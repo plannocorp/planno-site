@@ -5,6 +5,8 @@ import { Oferecimento } from './pages/oferecimento/oferecimento';
 import { Footer } from './components/footer/footer';
 import StoreDetails from './pages/store-datails/store-details';
 import ComoFunciona from './pages/como-funciona/como-funciona';
+import Equipe from './pages/equipe/equipe';
+import Planos from './pages/planos/planos';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Oferecimento />
         <StoreDetails />
         <ComoFunciona />
+        <Equipe />
+        <Planos />
       </main>
       <Footer />
     </>
