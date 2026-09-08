@@ -1,0 +1,213 @@
+.oferecimento {
+  width: 100%;
+  background-color: var(--black-background);
+  padding: 88px 0 100px;
+  position: relative;
+}
+
+.oferecimento-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.oferecimento-header {
+  margin-bottom: 48px;
+}
+
+.oferecimento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lightblue);
+  background: var(--darkblue);
+  border: 1px solid var(--darkblue);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.oferecimento-badge i {
+  color: var(--mainblue);
+  font-size: 7px;
+}
+
+.oferecimento-title {
+  color: var(--white);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* --- Grid de Cards --- */
+.oferecimento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* --- Card Base --- */
+.solution-card {
+  background: rgba(24, 24, 27, 0.45);
+  border: 1px solid rgba(147, 168, 198, 0.12);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+  background: rgba(24, 24, 27, 0.7);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* Destaque para o card Planno Store */
+.solution-card-highlight {
+  border-color: rgba(75, 108, 159, 0.5);
+  box-shadow: 0 0 28px rgba(75, 108, 159, 0.08);
+}
+
+.solution-card-highlight:hover {
+  border-color: var(--mainblue);
+  box-shadow: 0 16px 40px rgba(75, 108, 159, 0.18);
+}
+
+/* Topo do Card */
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.card-main-icon {
+  font-size: 24px;
+  color: var(--mainblue);
+}
+
+.card-title {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Pill / Selo "Mais Procurado" */
+.card-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(75, 108, 159, 0.3);
+  border: 1px solid rgba(75, 108, 159, 0.4);
+  color: var(--lightblue);
+  white-space: nowrap;
+}
+
+/* Descrição */
+.card-description {
+  color: var(--lightblue);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* Lista de Vantagens (Checklist) */
+.card-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-checklist li i {
+  color: var(--mainblue);
+  font-size: 13px;
+}
+
+/* Link CTA no rodapé do card */
+.card-cta-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+  width: fit-content;
+}
+
+.card-cta-link i {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.card-cta-link:hover {
+  color: var(--mainblue);
+  gap: 14px;
+}
+
+.card-cta-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Responsividade */
+
+@media screen and (max-width: 900px) {
+  .oferecimento-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .solution-card {
+    padding: 32px 28px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .oferecimento {
+    padding: 60px 0 72px;
+  }
+
+  .oferecimento-header {
+    margin-bottom: 36px;
+  }
+
+  .card-top-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .card-pill {
+    align-self: flex-start;
+  }
+}
