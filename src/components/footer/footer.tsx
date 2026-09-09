@@ -1,6 +1,7 @@
 import React from 'react';
 import './footer.css';
 import logoImg from '../../assets/Logo.png';
+import { Link } from 'react-router-dom';
 
 interface QuickLink {
   label: string;
@@ -122,12 +123,12 @@ export const Footer: React.FC = () => {
         </p>
 
         <div className="footer-policies">
-          <a href="/politicas-de-privacidade" className="footer-policy-link">
+          <Link to="/politicas-de-privacidade" className="footer-policy-link">
             Política de Privacidade
-          </a>
-          <a href="/termos-de-uso" className="footer-policy-link">
+          </Link>
+          <Link to="/termos-de-uso" className="footer-policy-link">
             Termos de Uso
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
