@@ -42,7 +42,7 @@ export const StoreDetails: React.FC = () => {
       <div className="store-details-container">
         <div className="store-details-grid">
           {/* Coluna 1: Dores do Mercado */}
-          <div className="comparison-box dores-box">
+          <div className="comparison-box dores-box" data-reveal="slide-left" data-delay="0">
             <span className="section-badge negative">
               <i className="fas fa-circle" aria-hidden="true"></i> Dificuldades no Mercado
             </span>
@@ -66,7 +66,7 @@ export const StoreDetails: React.FC = () => {
           </div>
 
           {/* Coluna 2: Soluções Planno Store */}
-          <div className="comparison-box solucoes-box">
+          <div className="comparison-box solucoes-box" data-reveal="slide-right" data-delay="150">
             <span className="section-badge positive">
               <i className="fas fa-circle" aria-hidden="true"></i> Como a Planno Store resolve
             </span>

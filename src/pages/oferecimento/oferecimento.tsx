@@ -6,7 +6,7 @@ export const Oferecimento: React.FC = () => {
     <section className="oferecimento" id="solucoes">
       <div className="oferecimento-container">
         {/* Cabeçalho da Seção */}
-        <div className="oferecimento-header">
+        <div className="oferecimento-header" data-reveal="fade-up">
           <div className="oferecimento-badge">
             <i className="fas fa-circle" aria-hidden="true"></i> O QUE OFERECEMOS
           </div>
@@ -16,7 +16,7 @@ export const Oferecimento: React.FC = () => {
         {/* Grid com os 2 Cards de Solução */}
         <div className="oferecimento-grid">
           {/* Card 1: Planno Store (Destaque) */}
-          <div className="solution-card solution-card-highlight">
+          <div className="solution-card solution-card-highlight" data-reveal="fade-up" data-delay="0">
             <div className="card-top-row">
               <div className="card-title-group">
                 <i className="fas fa-bag-shopping card-main-icon" aria-hidden="true"></i>
@@ -49,7 +49,7 @@ export const Oferecimento: React.FC = () => {
           </div>
 
           {/* Card 2: Sites & Landing Pages */}
-          <div className="solution-card">
+          <div className="solution-card" data-reveal="fade-up" data-delay="150">
             <div className="card-top-row">
               <div className="card-title-group">
                 <i className="fas fa-laptop-code card-main-icon" aria-hidden="true"></i>

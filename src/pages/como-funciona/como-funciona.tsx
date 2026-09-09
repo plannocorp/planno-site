@@ -35,7 +35,7 @@ export const ComoFunciona: React.FC = () => {
     <section className="como-funciona" id="como-funciona">
       <div className="como-funciona-container">
         {/* Cabeçalho centralizado */}
-        <div className="como-funciona-header">
+        <div className="como-funciona-header" data-reveal="fade-up">
           <span className="section-badge">
             <i className="fas fa-circle" aria-hidden="true"></i> Fluxo de Contratação
           </span>
@@ -44,10 +44,15 @@ export const ComoFunciona: React.FC = () => {
           </h2>
         </div>
 
-        {/* Grid com os 4 passos uniformes */}
+        {/* Grid com os 4 passos uniformes escalonados */}
         <div className="steps-grid">
-          {steps.map((step) => (
-            <div key={step.stepNum} className="step-card">
+          {steps.map((step, index) => (
+            <div
+              key={step.stepNum}
+              className="step-card"
+              data-reveal="fade-up"
+              data-delay={index * 100}
+            >
               <span className="step-num">{step.stepNum}</span>
               <h3 className="step-title">{step.title}</h3>
               <p className="step-description">{step.description}</p>
