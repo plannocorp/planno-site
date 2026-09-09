@@ -1,120 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --black-background: #080911;
-    --blue-background: #122033;
-    --black: #000;
-    --darkgray: #18181b;
-    --gray: #303030;
-    --white: #FAFAFA;
-    --darkblue: #1d375c;
-    --mainblue: #4b6c9f;
-    --lightblue: #93a8c6;
-    --shadow: #00000030;
-
-    /* Variáveis complementares */
-    --cta-gradient: linear-gradient(135deg, #6579ff, #3f58d2);
-    --cta-glow: rgba(75, 108, 255, 0.38);
+  --black-background: #080911;
+  --blue-background: #122033;
+  --black: #000;
+  --darkgray: #18181b;
+  --gray: #303030;
+  --white: #FAFAFA;
+  --darkblue: #1d375c;
+  --mainblue: #4b6c9f;
+  --lightblue: #93a8c6;
+  --shadow: #00000030;
+  --cta-gradient: linear-gradient(135deg, #6579ff, #3f58d2);
+  --cta-glow: rgba(75, 108, 255, 0.38);
 }
 
 *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    list-style: none;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
 }
 
 html, body {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    background-color: var(--black-background);
-    color: var(--white);
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background-color: var(--black-background);
+  color: var(--white);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 button, input, textarea, select {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 ::-webkit-scrollbar {
-    background-color: var(--black-background);
-    width: 10px;
+  background-color: var(--black-background);
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--mainblue);
-    border-radius: 20px;
+  background-color: var(--mainblue);
+  border-radius: 20px;
 }
 
-/* Animações Gerais */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
 
-.delay-0 { transition-delay: 0s; }
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
+[data-reveal="fade-in"] {
+  transform: translateY(0);
+}
 
-/* Up Animation */
+[data-reveal="scale-up"] {
+  transform: scale(0.92);
+}
+
+[data-reveal="slide-left"] {
+  transform: translateX(-32px);
+}
+
+[data-reveal="slide-right"] {
+  transform: translateX(32px);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
 .hidden-up {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateY(200px);
-    transition: all 1.5s ease;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .show-up {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-    transition: all 1.5s ease;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Left to Right Animation */
 .hidden-ltr {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(-50px);
-    transition: all 1.5s ease;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .show-ltr {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-    transition: all 1.5s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Right to Left Animation */
 .hidden-rtl {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(50px);
-    transition: all 1.5s ease;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .show-rtl {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-    transition: all 1.5s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Appears Animation */
 .hidden-ap {
-    opacity: 0;
-    transition: all 1.5s ease;
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .show-ap {
-    opacity: 1;
-    transition: all 1.5s ease;
+  opacity: 1;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* --- Classes Utilitárias Globais --- */
 
 .section-badge {
   display: inline-flex;
@@ -150,20 +155,39 @@ button, input, textarea, select {
 }
 
 @keyframes pulse-badge {
-  0% { transform: scale(0.9); opacity: 0.6; }
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
   50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.6; }
 }
 
 .btn-whatsapp-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-whatsapp-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+.btn-whatsapp-hover:hover::after {
+  left: 130%;
+  transition: left 0.75s ease;
 }
 
 .btn-whatsapp-hover:hover {
   background-color: #25d366 !important;
   border-color: #25d366 !important;
   color: #fff !important;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
 }
 
 main {
@@ -173,5 +197,14 @@ main {
 @media screen and (max-width: 992px) {
   main {
     padding-top: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

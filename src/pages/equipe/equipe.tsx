@@ -28,7 +28,7 @@ export const Equipe: React.FC = () => {
     <section className="equipe" id="equipe">
       <div className="equipe-container">
         {/* Cabeçalho */}
-        <div className="equipe-header">
+        <div className="equipe-header" data-reveal="fade-up">
           <span className="section-badge">
             <i className="fas fa-circle" aria-hidden="true"></i> Time Planno
           </span>
@@ -41,8 +41,13 @@ export const Equipe: React.FC = () => {
 
         {/* Cards dos Integrantes */}
         <div className="team-grid">
-          {members.map((member) => (
-            <div key={member.name} className="team-card">
+          {members.map((member, index) => (
+            <div
+              key={member.name}
+              className="team-card"
+              data-reveal="scale-up"
+              data-delay={index * 120}
+            >
               <span className="member-role">{member.role}</span>
               <h3 className="member-name">{member.name}</h3>
               <p className="member-bio">{member.bio}</p>

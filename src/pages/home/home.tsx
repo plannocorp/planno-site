@@ -127,7 +127,7 @@ export const Home: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Gráfico SVG de curva suave */}
+                  {/* Gráfico SVG de curva suave com ponto animado */}
                   <div className="chart-container">
                     <svg viewBox="0 0 300 80" className="revenue-chart">
                       <defs>

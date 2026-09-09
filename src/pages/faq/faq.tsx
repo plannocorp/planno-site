@@ -34,17 +34,22 @@ export const Faq: React.FC = () => {
     <section className="faq" id="faq">
       <div className="faq-container">
         {/* Cabeçalho */}
-        <div className="faq-header">
+        <div className="faq-header" data-reveal="fade-up">
           <span className="section-badge">
             <i className="fas fa-circle" aria-hidden="true"></i> Perguntas Frequentes
           </span>
           <h2 className="faq-title">Dúvidas Frequentes</h2>
         </div>
 
-        {/* Grid de Perguntas (2x2 simétrico e elegante) */}
+        {/* Grid de Perguntas escalonado */}
         <div className="faq-grid">
           {faqItems.map((item, index) => (
-            <div key={index} className="faq-card">
+            <div
+              key={index}
+              className="faq-card"
+              data-reveal="fade-up"
+              data-delay={index * 80}
+            >
               <h3 className="faq-question">{item.question}</h3>
               <p className="faq-answer">{item.answer}</p>
             </div>
