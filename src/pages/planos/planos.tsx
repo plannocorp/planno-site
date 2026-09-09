@@ -1,5 +1,6 @@
 import React from 'react';
 import './planos.css';
+import { Link } from 'react-router-dom';
 
 interface Plan {
   label: string;
@@ -21,7 +22,7 @@ const plans: Plan[] = [
     ],
     price: '65,99',
     buttonText: 'Ver detalhes e planos',
-    link: '#contato',
+    link: '/planos',
   },
   {
     label: 'Planno Store (Ecommerce)',
@@ -33,7 +34,7 @@ const plans: Plan[] = [
     ],
     price: '99,90',
     buttonText: 'Comparar lojas',
-    link: '#contato',
+    link: '/planos',
   },
 ];
 
@@ -77,9 +78,9 @@ export const Planos: React.FC = () => {
                 <span className="price-suffix"> / mês</span>
               </div>
 
-              <a href={plan.link} className="plan-cta-btn">
+              <Link to={plan.link} className="plan-cta-btn">
                 {plan.buttonText} <i className="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
