@@ -15,10 +15,18 @@ const certificationItems: CertificationItem[] = [
 ];
 
 export const CertificationBar: React.FC = () => {
+  // Quadruplicamos a lista para criar uma esteira longa contínua sem quebras
+  const marqueeItems = [
+    ...certificationItems,
+    ...certificationItems,
+    ...certificationItems,
+    ...certificationItems,
+  ];
+
   return (
-    <div className="certification-bar">
-      <div className="certification-container">
-        {certificationItems.map((item, index) => (
+    <div className="certification-bar" aria-label="Garantias e diferenciais da Planno">
+      <div className="marquee-track">
+        {marqueeItems.map((item, index) => (
           <div key={index} className="certification-item">
             <i className={`${item.icon} certification-icon`} aria-hidden="true"></i>
             <span className="certification-text">{item.text}</span>
