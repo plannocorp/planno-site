@@ -10,7 +10,7 @@ interface Member {
 
 const members: Member[] = [
   {
-    role: 'Front-End & UX',
+    role: 'Front-End, UX & Back-end',
     name: 'Vitor Teixeira',
     bio: 'Responsável pela experiência visual e interfaces que encantam seus clientes finais e geram conversão.',
     tags: ['React', 'Python', 'Angular', 'TypeScript'],
@@ -19,7 +19,7 @@ const members: Member[] = [
     role: 'Back-End & Infraestrutura',
     name: 'Ilton Carlos',
     bio: 'Responsável pela segurança, servidores de hospedagem e APIs que integram as lojas virtuais.',
-    tags: ['Java', 'Spring Boot', 'Mercado Pago API'],
+    tags: ['Java', 'Spring Boot', 'Mercado Pago API', 'SQL'],
   },
 ];
 
