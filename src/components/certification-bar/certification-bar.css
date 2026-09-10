@@ -5,73 +5,93 @@
   border-bottom: 1px solid rgba(147, 168, 198, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 18px 0;
+  padding: 16px 0;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-.certification-container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
+.marquee-track {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 52px;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.certification-bar:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .certification-item {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--lightblue);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  transition: color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: default;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .certification-item:hover {
   color: var(--white);
+  transform: translateY(-1px);
 }
 
 .certification-icon {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--mainblue);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .certification-item:hover .certification-icon {
-  transform: scale(1.15);
-  color: var(--lightblue);
+  transform: scale(1.18);
+  color: #6579ff;
 }
 
 .certification-text {
   white-space: nowrap;
 }
 
-@media screen and (max-width: 960px) {
-  .certification-container {
-    justify-content: center;
-    gap: 20px 32px;
+@media screen and (max-width: 768px) {
+  .certification-bar {
+    padding: 14px 0;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .marquee-track {
+    gap: 36px;
+    animation-duration: 25s;
+  }
+
+  .certification-item {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .certification-icon {
+    font-size: 15px;
   }
 }
 
-@media screen and (max-width: 640px) {
-  .certification-bar {
-    padding: 16px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .certification-bar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .certification-container {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 0 24px;
-    width: max-content;
-    gap: 28px;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
   }
 }
