@@ -1,4 +1,5 @@
 import React from 'react';
+import { SuperadminRedirect } from './pages/superadmin/superadmin-redirect';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 import { ScrollRevealObserver } from './hook/use-scroll-reveal';
@@ -47,6 +48,7 @@ export const App: React.FC = () => {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/superadmin/*" element={<SuperadminRedirect />} />
         <Route path="/planos" element={<PlanosPage />} />
         <Route path="/termos-de-uso" element={<TermosDeUso />} />
         <Route path="/politicas-de-privacidade" element={<PoliticaPrivacidade />} />
