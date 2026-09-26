@@ -8,7 +8,8 @@ export const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('vendas');
 
   useEffect(() => {
-    setLoaded(true);
+    const frame = requestAnimationFrame(() => setLoaded(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SuperadminRedirect } from './pages/superadmin/superadmin-redirect';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top';
@@ -19,6 +19,11 @@ import { Footer } from './components/footer/footer';
 import PlanosPage from './pages/planos-page/planos-page';
 import TermosDeUso from './pages/termos-de-uso-page/termos-de-uso-page';
 import PoliticaPrivacidade from './pages/pdp-page/pdp-page';
+
+function MerchantRedirect() {
+  useEffect(() => { window.location.replace('/lojista/' + window.location.hash); }, []);
+  return <p>Abrindo área do lojista…</p>;
+}
 
 const LandingPage: React.FC = () => {
   return (
@@ -48,6 +53,7 @@ export const App: React.FC = () => {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/lojista/*" element={<MerchantRedirect />} />
         <Route path="/superadmin/*" element={<SuperadminRedirect />} />
         <Route path="/planos" element={<PlanosPage />} />
         <Route path="/termos-de-uso" element={<TermosDeUso />} />
