@@ -20,6 +20,7 @@ const quickLinks: QuickLink[] = [
   { label: 'Planos', href: '#planos' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contato', href: '#contato' },
+  { label: 'Área do lojista', href: '/lojista/' },
 ];
 
 const solutions: string[] = [
