@@ -21,7 +21,11 @@ async function setup(page: Page, overrides: Partial<typeof user> = {}) {
     calls.push({ path, method, body, headers: req.headers() })
     const reply = (data: unknown, status = 200) => route.fulfill({ status, json: data })
     if (saveFailure && method === 'PUT') return reply({ message: 'synthetic failure' }, 500)
-    if (path === '/auth/login') return reply({ ...user, ...overrides, accessToken: 'synthetic-session' })
+    if (path === '/auth/login') {
+      if (!body?.emailCode) return reply({ status: 428, message: 'Código enviado para o e-mail.' }, 428)
+      if (body?.emailCode === '000000') return reply({ status: 401, message: 'Invalid code' }, 401)
+      return reply({ ...user, ...overrides, accessToken: 'synthetic-session' })
+    }
     if (path === '/auth/me') return reply({ ...user, ...overrides })
     if (path === '/auth/change-password') return route.fulfill({ status: 204 })
     if (path === '/admin/store/current') return reply({ id: 'store-a', name: 'Ateliê Aurora', slug: 'aurora' })
@@ -48,7 +52,27 @@ async function login(page: Page) {
   await page.getByLabel('E-mail', { exact: true }).fill('admin@example.com')
   await page.getByLabel('Senha', { exact: true }).fill('synthetic-password')
   await page.getByRole('button', { name: 'Entrar na minha loja' }).click()
+  await expect(page.getByLabel('Código enviado por e-mail')).toBeVisible()
+  await page.getByLabel('Código enviado por e-mail').fill('123456')
+  await page.getByRole('button', { name: 'Confirmar código' }).click()
 }
+
+test('email code is required and rejected codes never create a session', async ({ page }) => {
+  const { calls } = await setup(page)
+  await page.goto('/lojista/')
+  await page.getByLabel('E-mail', { exact: true }).fill('admin@example.com')
+  await page.getByLabel('Senha', { exact: true }).fill('synthetic-password')
+  await page.getByRole('button', { name: 'Entrar na minha loja' }).click()
+  await expect(page.getByLabel('Código enviado por e-mail')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Cada pedido, um caminho.' })).toHaveCount(0)
+  await page.getByLabel('Código enviado por e-mail').fill('000000')
+  await page.getByRole('button', { name: 'Confirmar código' }).click()
+  await expect(page.getByRole('heading', { name: 'Cada pedido, um caminho.' })).toHaveCount(0)
+  await page.getByLabel('Código enviado por e-mail').fill('123456')
+  await page.getByRole('button', { name: 'Confirmar código' }).click()
+  await expect(page.getByRole('heading', { name: 'Cada pedido, um caminho.' })).toBeVisible()
+  expect(calls.filter(call => call.path === '/auth/login').map(call => call.body?.emailCode)).toEqual([undefined, '000000', '123456'])
+})
 
 test('pickup, region, edit, pause and remove use the backend contracts', async ({ page }) => {
   const { calls } = await setup(page); await login(page)
@@ -197,4 +221,16 @@ test('empty list and unavailable endpoint are explicit, and wrong-store response
   await login(page)
   await expect(page.getByRole('alert')).toContainText('confirmar sua loja')
   await expect(page.getByText('Wrong store')).toHaveCount(0)
+})
+
+
+test('password form enforces the backend minimum before submitting', async ({ page }) => {
+  const fixture = await setup(page, { mustChangePassword: true }); await login(page)
+  await page.getByLabel('Senha atual', { exact: true }).fill('short')
+  await page.getByLabel('Nova senha', { exact: true }).fill('eight123')
+  await page.getByLabel('Confirme a nova senha').fill('eight123')
+  await page.getByRole('button', { name: 'Salvar nova senha' }).click()
+  expect(fixture.calls.filter(call => call.path === '/auth/change-password')).toHaveLength(0)
+  await expect(page.getByLabel('Nova senha', { exact: true })).toHaveAttribute('minlength', '12')
+  await expect(page.getByLabel('Nova senha', { exact: true })).toHaveAttribute('maxlength', '72')
 })

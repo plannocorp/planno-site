@@ -19,6 +19,7 @@ const messages: Record<number, string> = {
   401: 'Sua sessão expirou. Entre novamente.',
   403: 'Sua conta não tem permissão para essa ação.',
   404: 'Esse recurso não está disponível. Atualize a página ou confirme se o servidor já recebeu a atualização de frete.',
+  428: 'Enviamos um código de acesso para o seu e-mail. Informe-o para continuar.',
   409: 'Os dados mudaram ou já estão em uso. Atualize a página antes de tentar novamente.',
   429: 'Muitas tentativas. Aguarde um momento antes de tentar novamente.',
   503: 'O serviço está temporariamente indisponível. Tente novamente em instantes.',
