@@ -36,6 +36,7 @@ const projects: Project[] = [
     name: 'Soft Chaos',
     category: 'Blog',
     description: 'Blog com identidade visual própria, desenvolvido sob demanda.',
+    image: 'projetos/soft-chaos.jpg',
     links: [{ label: 'Ver site', href: 'https://soft-chaos.vercel.app' }],
   },
 ];
