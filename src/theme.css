@@ -653,3 +653,14 @@ html:has(.mobile-drawer.active) .whatsapp-float {
     position: relative;
   }
 }
+
+/* O fundo escurecido começa abaixo do cabeçalho, que continua nítido (sem faixa vazia no topo) */
+@media screen and (max-width: 992px) {
+  html .mobile-backdrop {
+    top: 72px;
+    height: calc(100dvh - 72px);
+  }
+  html .header {
+    background: #f7f8fc;
+  }
+}
