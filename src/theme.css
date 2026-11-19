@@ -590,3 +590,19 @@ html .header-container {
     margin-left: 4px;
   }
 }
+
+/* Nome do plano em destaque: o texto em degradê branco sumia no fundo claro */
+html .plan-card-featured .plan-name-heading {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--white);
+}
+html .plan-card-featured::after {
+  background: radial-gradient(ellipse 80% 120px at 50% 0%, rgba(69, 88, 216, 0.1), transparent 80%);
+}
+html .plan-card-featured::before {
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  box-shadow: none;
+}
