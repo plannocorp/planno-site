@@ -9,7 +9,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Início', href: '#home' },
-  { label: 'Equipe', href: '#equipe' },
+  { label: 'Projetos', href: '#projetos' },
   { label: 'Planos', href: '#planos' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contato', href: '#contato' },
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
 
   // ScrollSpy Inteligente: auto-ordena pelas posições reais no DOM
   useEffect(() => {
-    const sectionIds = ['home', 'equipe', 'planos', 'faq', 'contato'];
+    const sectionIds = ['home', 'projetos', 'planos', 'faq', 'contato'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 180; // Ponto focal abaixo do header

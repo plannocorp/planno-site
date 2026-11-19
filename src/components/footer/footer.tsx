@@ -16,7 +16,7 @@ interface SocialLink {
 
 const quickLinks: QuickLink[] = [
   { label: 'Início', href: '#home' },
-  { label: 'Equipe', href: '#equipe' },
+  { label: 'Projetos', href: '#projetos' },
   { label: 'Planos', href: '#planos' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contato', href: '#contato' },

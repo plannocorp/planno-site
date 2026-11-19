@@ -52,8 +52,8 @@
 
 /* --- Card Base --- */
 .solution-card {
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   border-radius: 20px;
   padding: 40px 36px;
   display: flex;
@@ -64,19 +64,19 @@
 
 .solution-card:hover {
   transform: translateY(-5px);
-  background: rgba(24, 24, 27, 0.7);
+  background: rgba(30, 50, 82, 0.7);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
 /* Destaque para o card Planno Store */
 .solution-card-highlight {
-  border-color: rgba(75, 108, 159, 0.5);
-  box-shadow: 0 0 28px rgba(75, 108, 159, 0.08);
+  border-color: rgba(107, 140, 196, 0.5);
+  box-shadow: 0 0 28px rgba(107, 140, 196, 0.08);
 }
 
 .solution-card-highlight:hover {
   border-color: var(--mainblue);
-  box-shadow: 0 16px 40px rgba(75, 108, 159, 0.18);
+  box-shadow: 0 16px 40px rgba(107, 140, 196, 0.18);
 }
 
 /* Topo do Card */
@@ -114,8 +114,8 @@
   letter-spacing: 0.04em;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(75, 108, 159, 0.3);
-  border: 1px solid rgba(75, 108, 159, 0.4);
+  background: rgba(107, 140, 196, 0.3);
+  border: 1px solid rgba(107, 140, 196, 0.4);
   color: var(--lightblue);
   white-space: nowrap;
 }

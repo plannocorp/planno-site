@@ -12,10 +12,10 @@
 .pricing-hero {
   position: relative;
   padding: 24px 0 55px;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.28) 0%, rgba(29, 55, 92, 0.35) 45%, rgba(8, 9, 17, 0.98) 85%), var(--black-background);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.28) 0%, rgba(42, 74, 122, 0.35) 45%, rgba(15, 27, 47, 0.98) 85%), var(--black-background);
   text-align: center;
   overflow: hidden;
-  border-bottom: 1px solid rgba(147, 168, 198, 0.08);
+  border-bottom: 1px solid rgba(195, 209, 230, 0.08);
 }
 
 .pricing-hero-grid {
@@ -25,8 +25,8 @@
   right: 0;
   bottom: 0;
   background-image:
-    linear-gradient(rgba(147, 168, 198, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147, 168, 198, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(195, 209, 230, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(195, 209, 230, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, black 35%, transparent 90%);
   -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, black 35%, transparent 90%);
@@ -137,7 +137,7 @@
   gap: 10px;
   width: 100%;
   background: rgba(18, 22, 38, 0.75);
-  border: 1px solid rgba(147, 168, 198, 0.16);
+  border: 1px solid rgba(195, 209, 230, 0.16);
   border-radius: 20px;
   padding: 8px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
@@ -167,7 +167,7 @@
 }
 
 .category-btn.active {
-  background: linear-gradient(135deg, rgba(75, 108, 159, 0.35) 0%, rgba(99, 102, 241, 0.25) 100%);
+  background: linear-gradient(135deg, rgba(107, 140, 196, 0.35) 0%, rgba(99, 102, 241, 0.25) 100%);
   border-color: rgba(99, 102, 241, 0.5);
   color: var(--white);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -178,7 +178,7 @@
   height: 42px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,7 +221,7 @@
   justify-content: center;
   gap: 12px;
   background: rgba(20, 24, 40, 0.65);
-  border: 1px solid rgba(147, 168, 198, 0.14);
+  border: 1px solid rgba(195, 209, 230, 0.14);
   padding: 6px 16px;
   border-radius: 999px;
   color: var(--lightblue);
@@ -238,7 +238,7 @@
 .billing-switch {
   width: 48px;
   height: 26px;
-  background: rgba(29, 55, 92, 0.7);
+  background: rgba(42, 74, 122, 0.7);
   border: 1px solid rgba(99, 102, 241, 0.4);
   border-radius: 999px;
   position: relative;
@@ -321,7 +321,7 @@
 .plan-card-item {
   position: relative;
   background: linear-gradient(180deg, rgba(22, 28, 46, 0.72) 0%, rgba(10, 12, 20, 0.88) 100%);
-  border: 1px solid rgba(147, 168, 198, 0.14);
+  border: 1px solid rgba(195, 209, 230, 0.14);
   border-radius: 24px;
   padding: 38px 30px 32px;
   display: flex;
@@ -340,7 +340,7 @@
   left: 15%;
   right: 15%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(147, 168, 198, 0.45), transparent);
+  background: linear-gradient(90deg, transparent, rgba(195, 209, 230, 0.45), transparent);
   border-radius: 999px;
   transition: all 0.4s ease;
   pointer-events: none;
@@ -353,7 +353,7 @@
   left: 0;
   right: 0;
   height: 120px;
-  background: radial-gradient(ellipse 70% 80px at 50% 0%, rgba(75, 108, 159, 0.08), transparent 80%);
+  background: radial-gradient(ellipse 70% 80px at 50% 0%, rgba(107, 140, 196, 0.08), transparent 80%);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   pointer-events: none;
@@ -361,15 +361,15 @@
 
 .plan-card-item:hover {
   transform: translateY(-8px);
-  border-color: rgba(147, 168, 198, 0.3);
+  border-color: rgba(195, 209, 230, 0.3);
   box-shadow: 0 28px 65px rgba(0, 0, 0, 0.65);
 }
 
 .plan-card-item:hover::before {
   left: 8%;
   right: 8%;
-  background: linear-gradient(90deg, transparent, rgba(147, 168, 198, 0.8), transparent);
-  box-shadow: 0 0 12px rgba(147, 168, 198, 0.5);
+  background: linear-gradient(90deg, transparent, rgba(195, 209, 230, 0.8), transparent);
+  box-shadow: 0 0 12px rgba(195, 209, 230, 0.5);
 }
 
 .plan-card-featured {
@@ -425,7 +425,7 @@
   gap: 7px;
   color: var(--lightblue);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(147, 168, 198, 0.18);
+  border: 1px solid rgba(195, 209, 230, 0.18);
   padding: 5px 14px;
   border-radius: 999px;
   font-size: 11px;
@@ -551,8 +551,8 @@
   flex-direction: column;
   gap: 8px;
   padding: 13px 15px;
-  background: rgba(8, 9, 17, 0.55);
-  border: 1px solid rgba(147, 168, 198, 0.08);
+  background: rgba(15, 27, 47, 0.55);
+  border: 1px solid rgba(195, 209, 230, 0.08);
   border-radius: 14px;
   margin-bottom: 24px;
 }
@@ -617,8 +617,8 @@
   width: 100%;
   padding: 13px 0;
   border-radius: 999px;
-  background: rgba(29, 55, 92, 0.5);
-  border: 1px solid rgba(75, 108, 159, 0.4);
+  background: rgba(42, 74, 122, 0.5);
+  border: 1px solid rgba(107, 140, 196, 0.4);
   color: var(--white);
   font-size: 14.5px;
   font-weight: 700;
@@ -647,7 +647,7 @@
 
 .included-perks-section {
   padding: 80px 0;
-  border-top: 1px solid rgba(147, 168, 198, 0.08);
+  border-top: 1px solid rgba(195, 209, 230, 0.08);
 }
 
 .perks-header {
@@ -676,8 +676,8 @@
 }
 
 .perk-card {
-  background: rgba(24, 24, 27, 0.4);
-  border: 1px solid rgba(147, 168, 198, 0.1);
+  background: rgba(30, 50, 82, 0.4);
+  border: 1px solid rgba(195, 209, 230, 0.1);
   border-radius: 18px;
   padding: 30px 24px;
   display: flex;
@@ -687,14 +687,14 @@
 
 .perk-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(75, 108, 159, 0.3);
+  border-color: rgba(107, 140, 196, 0.3);
 }
 
 .perk-icon-box {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(75, 108, 159, 0.15);
+  background: rgba(107, 140, 196, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -726,8 +726,8 @@
   justify-content: space-between;
   gap: 32px;
   padding: 44px 48px;
-  background: linear-gradient(135deg, rgba(29, 55, 92, 0.5), rgba(18, 32, 51, 0.7));
-  border: 1px solid rgba(75, 108, 159, 0.3);
+  background: linear-gradient(135deg, rgba(42, 74, 122, 0.5), rgba(26, 46, 77, 0.7));
+  border: 1px solid rgba(107, 140, 196, 0.3);
   border-radius: 24px;
 }
 

@@ -44,8 +44,8 @@
 
 .plan-card {
   position: relative;
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   border-radius: 20px;
   padding: 40px 36px;
   display: flex;
@@ -78,8 +78,8 @@
 .plan-pill {
   display: inline-block;
   color: var(--lightblue);
-  background: rgba(29, 55, 92, 0.5);
-  border: 1px solid rgba(75, 108, 159, 0.4);
+  background: rgba(42, 74, 122, 0.5);
+  border: 1px solid rgba(107, 140, 196, 0.4);
   border-radius: 999px;
   padding: 6px 16px;
   font-size: 12.5px;
@@ -172,7 +172,7 @@
 .plan-cta-btn:hover {
   background: var(--lightblue);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(75, 108, 159, 0.35);
+  box-shadow: 0 8px 24px rgba(107, 140, 196, 0.35);
 }
 
 .plan-cta-btn:hover i {

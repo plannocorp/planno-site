@@ -10,7 +10,7 @@
 
 .legal-hero {
   padding: 80px 0 50px;
-  background: radial-gradient(circle at 50% 10%, rgba(29, 55, 92, 0.4), var(--black-background) 70%);
+  background: radial-gradient(circle at 50% 10%, rgba(42, 74, 122, 0.4), var(--black-background) 70%);
 }
 
 .legal-hero .legal-container {
@@ -54,8 +54,8 @@
 
 .legal-card {
   position: relative;
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.1);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.1);
   border-radius: 18px;
   padding: 32px 30px;
   overflow: hidden;
@@ -73,7 +73,7 @@
 }
 
 .legal-card:hover {
-  border-color: rgba(75, 108, 159, 0.4);
+  border-color: rgba(107, 140, 196, 0.4);
 }
 
 .legal-card-title {

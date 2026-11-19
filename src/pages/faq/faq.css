@@ -1,7 +1,7 @@
 .faq {
   width: 100%;
-  background: radial-gradient(circle at 50% 100%, rgba(18, 32, 51, 0.4) 0%, var(--black-background) 80%);
-  border-top: 1px solid rgba(147, 168, 198, 0.08);
+  background: radial-gradient(circle at 50% 100%, rgba(26, 46, 77, 0.4) 0%, var(--black-background) 80%);
+  border-top: 1px solid rgba(195, 209, 230, 0.08);
   padding: 100px 0 120px;
 }
 
@@ -30,8 +30,8 @@
 }
 
 .faq-card {
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.1);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.1);
   border-radius: 18px;
   padding: 34px 32px;
   display: flex;
@@ -41,8 +41,8 @@
 
 .faq-card:hover {
   transform: translateY(-4px);
-  background: rgba(24, 24, 27, 0.7);
-  border-color: rgba(75, 108, 159, 0.4);
+  background: rgba(30, 50, 82, 0.7);
+  border-color: rgba(107, 140, 196, 0.4);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
 }
 
