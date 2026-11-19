@@ -15,27 +15,35 @@ import Planos from './pages/planos/planos';
 import Faq from './pages/faq/faq';
 import Contato from './pages/contato/contato';
 import { Footer } from './components/footer/footer';
+import { WhatsAppFloat } from './components/whatsapp-float/whatsapp-float';
+import { usePageMeta } from './hook/use-page-meta';
 
 import PlanosPage from './pages/planos-page/planos-page';
 import TermosDeUso from './pages/termos-de-uso-page/termos-de-uso-page';
 import PoliticaPrivacidade from './pages/pdp-page/pdp-page';
 
 const LandingPage: React.FC = () => {
+  usePageMeta(
+    'Planno | Landing pages, sites institucionais e lojas virtuais',
+    'A Planno cria landing pages e sites institucionais sob medida e lojas virtuais com a Planno Store (a partir de R$ 129,90/mês), com hospedagem e manutenção.'
+  );
   return (
     <>
+      <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
       <Header />
-      <main>
+      <main id="conteudo">
         <Home />
         <CertificationBar />
         <Oferecimento />
         <StoreDetails />
-        <ComoFunciona />
         <Projetos />
+        <ComoFunciona />
         <Planos />
         <Faq />
         <Contato />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 };

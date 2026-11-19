@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './planos-page.css';
+import { usePageMeta } from '../../hook/use-page-meta';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 import HeaderAlt from '../../components/header/header-alt/header-alt';
 import Footer from '../../components/footer/footer';
 
-type Category = 'sites' | 'ecommerce';
+type Category = 'criacao' | 'sites' | 'ecommerce';
 type BillingCycle = 'mensal' | 'anual';
 
 interface HostingPlan {
@@ -93,74 +96,120 @@ const hostingPlans: HostingPlan[] = [
   },
 ];
 
+interface CreationPlan {
+  id: string;
+  name: string;
+  badge: string;
+  desc: string;
+  features: string[];
+  message: string;
+}
+
+const creationPlans: CreationPlan[] = [
+  {
+    id: 'landing',
+    name: 'Landing page',
+    badge: 'Captação de contatos',
+    desc: 'Uma página objetiva para divulgar um serviço, lançar um produto ou captar contatos.',
+    features: [
+      'Design responsivo, otimizado para celulares',
+      'Otimização de velocidade e SEO',
+      'Desenvolvido sob medida para a sua marca',
+      'Publicação com a nossa equipe',
+    ],
+    message: WHATSAPP_MESSAGES.landing,
+  },
+  {
+    id: 'institucional',
+    name: 'Site institucional',
+    badge: 'Presença profissional',
+    desc: 'Um site com várias páginas para apresentar sua empresa e ganhar autoridade digital.',
+    features: [
+      'Páginas e estrutura sob medida',
+      'Identidade visual alinhada à marca',
+      'Design responsivo, otimizado para celulares',
+      'Otimização de velocidade e SEO',
+      'Publicação com a nossa equipe',
+    ],
+    message: WHATSAPP_MESSAGES.site,
+  },
+];
+
+// Planos e preços alinhados ao catálogo do Planno Hub / Planno Store (Inicial, Intermediário, Avançado).
 const ecommercePlans: EcommercePlan[] = [
   {
-    id: 'start',
-    name: 'Start',
-    badge: 'Para Começar',
-    desc: 'Estrutura completa e profissional para iniciar suas vendas online com segurança.',
-    priceMonthly: 99.90,
-    products: 'Até 150 produtos cadastrados',
+    id: 'inicial',
+    name: 'Inicial',
+    badge: 'Para começar',
+    desc: 'Tudo o que você precisa para abrir a sua loja e começar a vender.',
+    priceMonthly: 129.9,
+    products: 'Catálogo, estoque e pedidos',
     features: [
-      'Domínio .com.br próprio incluso',
-      'Checkout transparente Mercado Pago (Pix & Cartão)',
-      'Cálculo de frete automático integrado',
-      'Painel intuitivo de controle de estoque e pedidos',
-      'Notificações automáticas por e-mail',
-      'Hospedagem e suporte técnico inclusos',
+      'Painel administrativo da loja',
+      'Catálogo de produtos com categorias e imagens',
+      'Controle de estoque',
+      'Carrinho, cupons e cálculo de frete',
+      'Checkout integrado ao Mercado Pago',
+      'Implantação feita pela equipe Planno',
     ],
   },
   {
-    id: 'pro',
-    name: 'Pro',
-    badge: 'O Mais Vendido',
+    id: 'intermediario',
+    name: 'Intermediário',
+    badge: 'Mais escolhido',
     popular: true,
-    desc: 'Para lojas que querem acelerar o faturamento com recuperação de vendas e métricas.',
-    priceMonthly: 139.90,
-    products: 'Até 500 produtos cadastrados',
+    desc: 'Para quem já vende e quer acompanhar o crescimento de perto.',
+    priceMonthly: 179.9,
+    products: 'Tudo do Inicial',
     features: [
-      'Tudo incluso no Plano Start',
-      'Recuperação inteligente de carrinhos abandonados',
-      'Painel de métricas financeiras e faturamento em tempo real',
-      'Cupons de desconto e promoções personalizadas',
-      'Otimização de checkout para conversão mobile',
+      'Tudo incluso no plano Inicial',
+      'Resumo de vendas, produtos mais vendidos e pedidos recentes',
+      'Promoções e cupons de desconto',
       'Suporte técnico prioritário',
     ],
   },
   {
-    id: 'premium',
-    name: 'Premium',
-    badge: 'Escala Total',
-    desc: 'Máxima capacidade, produtos ilimitados e automações avançadas de pós-venda.',
-    priceMonthly: 259.90,
-    products: 'Produtos e categorias ilimitados',
+    id: 'avancado',
+    name: 'Avançado',
+    badge: 'Para crescer',
+    desc: 'Para operações maiores, com atendimento ainda mais próximo.',
+    priceMonthly: 259.9,
+    products: 'Tudo do Intermediário',
     features: [
-      'Tudo incluso no Plano Pro',
-      'Automações avançadas de e-mail marketing pós-venda',
-      'Integração multi-canais e alta escalabilidade',
-      'Servidor dedicado com performance otimizada',
-      'Atendimento prioritário em canal exclusivo',
-      'Auditorias mensais de usabilidade e conversão',
+      'Tudo incluso no plano Intermediário',
+      'Atendimento prioritário em canal direto',
+      'Acompanhamento próximo da equipe Planno',
     ],
   },
 ];
 
 export const PlanosPage: React.FC = () => {
-  const [category, setCategory] = useState<Category>('sites');
+  usePageMeta(
+    'Planos e valores | Planno',
+    'Landing pages e sites institucionais sob orçamento, Planno Store a partir de R$ 129,90/mês e planos de hospedagem e manutenção.'
+  );
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tab = searchParams.get('aba');
+  // A aba ativa vem da URL (?aba=...), então os links de outras seções sempre funcionam.
+  const category: Category = tab === 'manutencao' ? 'sites' : tab === 'store' ? 'ecommerce' : 'criacao';
+  const setCategory = (c: Category) =>
+    setSearchParams({ aba: c === 'sites' ? 'manutencao' : c === 'ecommerce' ? 'store' : 'criacao' }, { replace: true });
   const [billingCycle, setBillingCycle] = useState<BillingCycle>('mensal');
-
-  const whatsappNumber = '5562984458858';
 
   const formatCurrency = (val: number) => {
     return val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
 
   const getWhatsAppLink = (planName: string, type: 'hospedagem' | 'ecommerce') => {
+    if (type === 'ecommerce') {
+      return whatsappLink(
+        `Olá! Tenho interesse na Planno Store, plano ${planName}. Poderiam me orientar com o próximo passo?`
+      );
+    }
     const cycleText = billingCycle === 'anual' ? 'Anual (com 15% de desconto)' : 'Mensal';
-    const message = encodeURIComponent(
-      `Olá! Tenho interesse em contratar o plano ${planName} (${type === 'ecommerce' ? 'Planno Store Ecommerce' : 'Hospedagem de Sites'}) no ciclo ${cycleText}. Poderiam me orientar com o próximo passo?`
+    return whatsappLink(
+      `Olá! Tenho interesse no plano de hospedagem e manutenção ${planName}, ciclo ${cycleText}. Poderiam me orientar com o próximo passo?`
     );
-    return `https://wa.me/${whatsappNumber}?text=${message}`;
   };
 
   return (
@@ -168,7 +217,6 @@ export const PlanosPage: React.FC = () => {
       <HeaderAlt />
 
       <main className="planos-page">
-                {/* Hero Centralizado Reinventado */}
         <section className="pricing-hero">
           <div className="pricing-hero-grid" aria-hidden="true"></div>
 
@@ -178,15 +226,15 @@ export const PlanosPage: React.FC = () => {
                 <span className="beacon-ping"></span>
                 <span className="beacon-dot"></span>
               </span>
-              <span>Infraestrutura Cloud & Performance Operacional</span>
+              <span>Preços transparentes</span>
             </div>
 
             <h1 className="pricing-hero-title">
-              A tecnologia certa para a sua marca <span className="hero-gradient-text">escalar e converter.</span>
+              Escolha o seu plano e comece a vender
             </h1>
 
             <p className="pricing-hero-desc">
-              Sem taxas surpresa ou configurações complexas. Escolha entre servidores dedicados para sites institucionais ou o ecossistema completo de vendas da Planno Store.
+              Crie o seu site, abra a sua loja com a Planno Store ou mantenha tudo no ar com a nossa manutenção.
             </p>
 
             <div className="hero-control-dock">
@@ -194,20 +242,40 @@ export const PlanosPage: React.FC = () => {
               <div className="category-switcher" role="tablist">
                 <button
                   type="button"
-                  className={`category-btn ${category === 'sites' ? 'active' : ''}`}
-                  onClick={() => setCategory('sites')}
+                  role="tab"
+                  aria-selected={category === 'criacao'}
+                  className={`category-btn ${category === 'criacao' ? 'active' : ''}`}
+                  onClick={() => setCategory('criacao')}
                 >
                   <div className="category-icon-box">
-                    <i className="fas fa-globe" aria-hidden="true"></i>
+                    <i className="fas fa-laptop-code" aria-hidden="true"></i>
                   </div>
                   <div className="category-btn-text">
-                    <span className="category-btn-title">Sites & Landing Pages</span>
-                    <span className="category-btn-sub">Hospedagem rápida, blogs e autoridade</span>
+                    <span className="category-btn-title">Criação de sites</span>
+                    <span className="category-btn-sub">Landing page e site institucional</span>
                   </div>
                 </button>
 
                 <button
                   type="button"
+                  role="tab"
+                  aria-selected={category === 'sites'}
+                  className={`category-btn ${category === 'sites' ? 'active' : ''}`}
+                  onClick={() => setCategory('sites')}
+                >
+                  <div className="category-icon-box">
+                    <i className="fas fa-server" aria-hidden="true"></i>
+                  </div>
+                  <div className="category-btn-text">
+                    <span className="category-btn-title">Hospedagem e manutenção</span>
+                    <span className="category-btn-sub">Seu site no ar, seguro e atualizado</span>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={category === 'ecommerce'}
                   className={`category-btn ${category === 'ecommerce' ? 'active' : ''}`}
                   onClick={() => setCategory('ecommerce')}
                 >
@@ -215,8 +283,8 @@ export const PlanosPage: React.FC = () => {
                     <i className="fas fa-bag-shopping" aria-hidden="true"></i>
                   </div>
                   <div className="category-btn-text">
-                    <span className="category-btn-title">Planno Store (E-commerce)</span>
-                    <span className="category-btn-sub">Loja virtual completa, frete e checkout</span>
+                    <span className="category-btn-title">Planno Store</span>
+                    <span className="category-btn-sub">Loja virtual com catálogo e checkout</span>
                   </div>
                 </button>
               </div>
@@ -243,15 +311,15 @@ export const PlanosPage: React.FC = () => {
               <div className="hero-trust-strip">
                 <div className="trust-item">
                   <i className="fas fa-bolt" aria-hidden="true"></i>
-                  <span>Servidores NVMe Ultra-rápidos</span>
+                  <span>Hospedagem rápida</span>
                 </div>
                 <div className="trust-item">
                   <i className="fas fa-shield-halved" aria-hidden="true"></i>
-                  <span>SSL & Backups Automatizados</span>
+                  <span>SSL e backups</span>
                 </div>
                 <div className="trust-item">
                   <i className="fab fa-whatsapp" aria-hidden="true"></i>
-                  <span>Atendimento Humano Especializado</span>
+                  <span>Atendimento humano no WhatsApp</span>
                 </div>
               </div>
             </div>
@@ -261,7 +329,41 @@ export const PlanosPage: React.FC = () => {
         {/* Grid de Cards dos Planos */}
         <section className="pricing-cards-section">
           <div className="pricing-container">
-            {category === 'sites' ? (
+            {category === 'criacao' ? (
+              <div className="pricing-grid pricing-grid-two">
+                {creationPlans.map((plan) => (
+                  <div key={plan.id} className="plan-card-item">
+                    <div className="card-badge-row">
+                      <span className="plan-type-badge">{plan.badge}</span>
+                    </div>
+                    <div className="plan-card-header">
+                      <h2 className="plan-name-heading">{plan.name}</h2>
+                      <p className="plan-summary">{plan.desc}</p>
+                    </div>
+                    <div className="plan-price-box">
+                      <strong className="main-price-number price-custom">Peça seu orçamento</strong>
+                    </div>
+                    <span className="annual-savings-tag">Orçamento sob medida, sem compromisso</span>
+                    <ul className="plan-features-list">
+                      {plan.features.map((feat) => (
+                        <li key={feat}>
+                          <i className="fas fa-circle-check" aria-hidden="true"></i>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={whatsappLink(plan.message)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="plan-contract-btn"
+                    >
+                      Pedir orçamento <i className="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ) : category === 'sites' ? (
               <div className="pricing-grid">
                 {hostingPlans.map((plan) => {
                   const displayPrice =
@@ -370,7 +472,7 @@ export const PlanosPage: React.FC = () => {
                       <span className="price-frequency">/mês</span>
                     </div>
 
-                    <span className="annual-savings-tag">Sem taxa de adesão surpresa</span>
+                    <span className="annual-savings-tag">Implantação feita pela equipe Planno</span>
 
                     {/* Destaque de capacidade */}
                     <div className="plan-metrics-block">
@@ -412,8 +514,8 @@ export const PlanosPage: React.FC = () => {
               <span className="section-badge">
                 <i className="fas fa-shield-halved" aria-hidden="true"></i> Padrão de Qualidade Planno
               </span>
-              <h2>Incluso em todos os nossos serviços</h2>
-              <p>Não importa o plano escolhido, você conta com tecnologia de ponta e suporte de verdade.</p>
+              <h2>Incluso em todos os planos</h2>
+              <p>Em qualquer plano, você conta com segurança, velocidade e atendimento de verdade.</p>
             </div>
 
             <div className="perks-grid">
@@ -460,17 +562,17 @@ export const PlanosPage: React.FC = () => {
                 <span className="section-badge">
                   <i className="fas fa-lightbulb" aria-hidden="true"></i> Projeto Sob Medida
                 </span>
-                <h2>Precisa de um projeto exclusivo ou tem dúvidas sobre os planos?</h2>
-                <p>Nossa equipe analisa suas necessidades e monta uma proposta alinhada ao seu negócio.</p>
+                <h2>Não achou o que procura? Vamos montar juntos.</h2>
+                <p>Conte o que você precisa e a nossa equipe indica o melhor caminho para o seu negócio.</p>
               </div>
 
               <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Gostaria de conversar com um especialista sobre um projeto personalizado da Planno.')}`}
+                href={whatsappLink('Olá! Gostaria de conversar com um especialista sobre um projeto personalizado da Planno.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-contact-button btn-whatsapp-hover"
               >
-                Falar com Especialista <i className="fab fa-whatsapp" aria-hidden="true"></i>
+                Falar com um especialista <i className="fab fa-whatsapp" aria-hidden="true"></i>
               </a>
             </div>
           </div>

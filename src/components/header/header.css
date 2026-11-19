@@ -47,7 +47,7 @@
 .header-nav-list {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -56,11 +56,11 @@
 .header-nav-link {
   position: relative;
   font-family: 'Poppins', sans-serif;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--lightblue);
   text-decoration: none;
-  padding: 8px 18px;
+  padding: 8px 14px;
   border-radius: 999px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -87,16 +87,14 @@
   text-decoration: none;
   padding: 10px 24px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #6579ff, #3f58d2);
-  box-shadow: 0 10px 28px rgba(75, 108, 255, 0.38);
+  background: var(--accent);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-left: 10px;
 }
 
 .header-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(75, 108, 255, 0.52);
-  filter: brightness(1.08);
+  background: var(--accent-hover);
 }
 
 .header-cta:active {

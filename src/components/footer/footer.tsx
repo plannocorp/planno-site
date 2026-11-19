@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 import logoImg from '../../assets/Logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface QuickLink {
   label: string;
@@ -16,8 +16,10 @@ interface SocialLink {
 
 const quickLinks: QuickLink[] = [
   { label: 'Início', href: '#home' },
+  { label: 'Soluções', href: '#solucoes' },
+  { label: 'Planno Store', href: '#planno-store' },
   { label: 'Projetos', href: '#projetos' },
-  { label: 'Planos', href: '#planos' },
+  { label: 'Valores', href: '#planos' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contato', href: '#contato' },
 ];
@@ -26,7 +28,7 @@ const solutions: string[] = [
   'Landing pages',
   'Sites institucionais',
   'Blogs e páginas pessoais',
-  'Ecommerces',
+  'Lojas virtuais (Planno Store)',
   'Hospedagem e manutenção',
 ];
 
@@ -55,18 +57,20 @@ const socialLinks: SocialLink[] = [
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { pathname } = useLocation();
+  // Fora da home, os links de seção precisam apontar para a raiz.
+  const anchor = (href: string) => (pathname === '/' ? href : `/${href}`);
 
   return (
     <footer className="footer">
       <div className="footer-container">
         {/* Seção da Marca / Logo */}
         <div className="footer-col footer-logo-section">
-          <a href="#home" className="footer-logo-link">
-            <img src={logoImg} alt="Planno Logo" className="footer-logo" />
+          <a href={anchor('#home')} className="footer-logo-link" aria-label="Planno, ir ao início">
+            <img src={logoImg} alt="Planno" className="footer-logo" width={90} height={60} loading="lazy" />
           </a>
           <p className="footer-description">
-            Sites, landing pages, blogs e ecommerces com hospedagem, domínio, manutenção e suporte
-            técnico em um fluxo simples para vender e operar melhor.
+            Sites, landing pages e lojas virtuais com hospedagem, manutenção e suporte para o seu negócio vender mais.
           </p>
         </div>
 
@@ -76,7 +80,7 @@ export const Footer: React.FC = () => {
           <ul className="footer-list">
             {quickLinks.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="footer-link">
+                <a href={anchor(item.href)} className="footer-link">
                   {item.label}
                 </a>
               </li>

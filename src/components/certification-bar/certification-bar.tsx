@@ -7,34 +7,24 @@ interface CertificationItem {
 }
 
 const certificationItems: CertificationItem[] = [
-  { icon: 'fab fa-cc-visa', text: 'Mercado Pago Integrado' },
-  { icon: 'fas fa-palette', text: 'Design Customizado' },
-  { icon: 'fas fa-globe', text: 'Domínio Próprio' },
-  { icon: 'fas fa-lock', text: 'SSL e Segurança Ativa' },
-  { icon: 'fas fa-headset', text: 'Suporte Humano Próximo' },
+  { icon: 'fas fa-palette', text: 'Design sob medida' },
+  { icon: 'fas fa-globe', text: 'Domínio próprio' },
+  { icon: 'fas fa-lock', text: 'SSL e segurança' },
+  { icon: 'fab fa-cc-visa', text: 'Mercado Pago na Store' },
+  { icon: 'fas fa-headset', text: 'Suporte humano' },
 ];
 
-export const CertificationBar: React.FC = () => {
-  // Quadruplicamos a lista para criar uma esteira longa contínua sem quebras
-  const marqueeItems = [
-    ...certificationItems,
-    ...certificationItems,
-    ...certificationItems,
-    ...certificationItems,
-  ];
-
-  return (
-    <div className="certification-bar" aria-label="Garantias e diferenciais da Planno">
-      <div className="marquee-track">
-        {marqueeItems.map((item, index) => (
-          <div key={index} className="certification-item">
-            <i className={`${item.icon} certification-icon`} aria-hidden="true"></i>
-            <span className="certification-text">{item.text}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+export const CertificationBar: React.FC = () => (
+  <div className="certification-bar">
+    <ul className="certification-list" aria-label="Diferenciais da Planno">
+      {[...certificationItems, ...certificationItems, ...certificationItems, ...certificationItems].map((item, i) => (
+        <li key={i} className="certification-item" aria-hidden={i >= certificationItems.length}>
+          <i className={`${item.icon} certification-icon`} aria-hidden="true"></i>
+          <span className="certification-text">{item.text}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default CertificationBar;

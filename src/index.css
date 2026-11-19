@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
   --black-background: #0f1b2f;
@@ -11,6 +10,11 @@
   --mainblue: #6b8cc4;
   --lightblue: #c3d1e6;
   --shadow: #00000030;
+  --accent: #5b6ff0;
+  --accent-hover: #6f81f5;
+  --line: rgba(195, 209, 230, 0.14);
+  --surface: rgba(30, 50, 82, 0.4);
+  --whatsapp: #25d366;
   --cta-gradient: linear-gradient(135deg, #6579ff, #3f58d2);
   --cta-glow: rgba(75, 108, 255, 0.38);
 }
@@ -19,7 +23,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none;
   border: none;
   list-style: none;
   text-decoration: none;
@@ -139,7 +142,7 @@ button, input, textarea, select {
 
 .section-badge i {
   font-size: 0.5rem;
-  animation: pulse-badge 2s infinite;
+  
 }
 
 .section-badge.negative {
@@ -160,34 +163,151 @@ button, input, textarea, select {
 }
 
 .btn-whatsapp-hover {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-whatsapp-hover::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -70%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: rotate(25deg);
-  pointer-events: none;
-}
-
-.btn-whatsapp-hover:hover::after {
-  left: 130%;
-  transition: left 0.75s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-whatsapp-hover:hover {
-  background-color: #25d366 !important;
-  border-color: #25d366 !important;
-  color: #fff !important;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  background-color: var(--whatsapp) !important;
+  border-color: var(--whatsapp) !important;
+  color: #062b14 !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
   transform: translateY(-2px);
+}
+
+/* ---------- Acessibilidade ---------- */
+:focus-visible {
+  outline: 2px solid #9db4ff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  z-index: 2000;
+  background: var(--white);
+  color: var(--black-background);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Botões compartilhados ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(195, 209, 230, 0.3);
+}
+
+.btn-ghost:hover {
+  border-color: var(--lightblue);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #062b14;
+}
+
+.btn-whatsapp:hover {
+  background: #3ee07b;
+  transform: translateY(-1px);
+}
+
+/* ---------- Estrutura de seção ---------- */
+.section {
+  padding: 96px 0;
+}
+
+.section-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.section-head {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 4px 0 16px;
+}
+
+.section-head p {
+  color: var(--lightblue);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--mainblue);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
+  .section-head {
+    margin-bottom: 40px;
+  }
 }
 
 main {
@@ -207,4 +327,7 @@ main {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+section[id] {
+  scroll-margin-top: 84px;
 }

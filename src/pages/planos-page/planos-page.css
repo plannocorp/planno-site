@@ -83,7 +83,6 @@
   border-radius: 50%;
   background: #10b981;
   opacity: 0.75;
-  animation: beaconPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes beaconPing {
@@ -108,9 +107,7 @@
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, #ffffff 20%, #93c5fd 60%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--white);
   display: inline;
 }
 
@@ -133,7 +130,7 @@
 
 .category-switcher {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   width: 100%;
   background: rgba(18, 22, 38, 0.75);
@@ -635,14 +632,12 @@
 }
 
 .btn-primary-glow {
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  background: var(--accent);
   border: none;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
 }
 
 .btn-primary-glow:hover {
-  background: linear-gradient(135deg, #7579ff, #4b90ff);
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
+  background: var(--accent-hover);
 }
 
 .included-perks-section {
@@ -801,4 +796,28 @@
   .perks-grid {
     grid-template-columns: 1fr;
   }
+}
+.pricing-grid-two {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.price-from {
+  align-self: flex-end;
+  font-size: 13px;
+  color: var(--mainblue);
+  margin-right: 6px;
+  padding-bottom: 8px;
+}
+
+@media screen and (max-width: 992px) {
+  .pricing-grid-two {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+.price-custom {
+  font-size: 30px;
 }

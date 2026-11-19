@@ -1,92 +1,125 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './store-details.css';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
-interface Item {
+interface Feature {
+  icon: string;
   title: string;
   description: string;
 }
 
-const dores: Item[] = [
+const journey: Feature[] = [
   {
-    title: 'Pedidos caóticos no WhatsApp',
-    description: 'Perder tempo processando pagamentos, anotando endereços e calculando frete de forma manual.',
+    icon: 'fas fa-list',
+    title: 'Catálogo',
+    description: 'Vitrine organizada, com fotos, preços e categorias que facilitam a escolha.',
   },
   {
-    title: 'Dependência do Direct do Instagram',
-    description: 'Ficar refém de algoritmos e de responder a mensagens a todo momento para conseguir fechar vendas.',
+    icon: 'fas fa-cart-shopping',
+    title: 'Carrinho',
+    description: 'O cliente adiciona os produtos, aplica cupons e segue para o pagamento.',
   },
   {
-    title: 'Falta de credibilidade online',
-    description: 'Não possuir uma identidade visual forte ou uma loja estruturada passa insegurança para os seus clientes.',
+    icon: 'fas fa-truck',
+    title: 'Frete',
+    description: 'O valor do envio é calculado na hora, sem troca de mensagens.',
+  },
+  {
+    icon: 'fas fa-credit-card',
+    title: 'Pagamento',
+    description: 'Checkout seguro dentro da loja, com Mercado Pago.',
   },
 ];
 
-const solucoes: Item[] = [
+const admin: Feature[] = [
   {
-    title: 'Checkout Transparente e Integrado',
-    description: 'Seus clientes compram via Pix ou cartão com segurança através do Mercado Pago direto na sua loja.',
+    icon: 'fas fa-boxes-stacked',
+    title: 'Estoque',
+    description: 'Saiba o que está disponível e evite vender o que já acabou.',
   },
   {
-    title: 'Painel Completo e Controle Total',
-    description: 'Gestão simples de estoque, controle de envio e catálogo de produtos atualizado de forma centralizada.',
+    icon: 'fas fa-receipt',
+    title: 'Pedidos',
+    description: 'Acompanhe cada pedido e o status do pagamento, sem planilha.',
   },
   {
-    title: 'Suporte Integral na Implantação',
-    description: 'Nossa equipe faz todo o trabalho técnico pesado. Configuramos a identidade, produtos e meios de pagamento.',
+    icon: 'fas fa-chart-column',
+    title: 'Resumo das vendas',
+    description: 'Veja o que mais vende e como a sua loja está indo.',
+  },
+  {
+    icon: 'fas fa-tags',
+    title: 'Cupons e promoções',
+    description: 'Crie promoções e atraia mais compradores quando quiser.',
   },
 ];
+
+const FeatureList: React.FC<{ items: Feature[] }> = ({ items }) => (
+  <ul className="store-feature-list">
+    {items.map((f) => (
+      <li key={f.title}>
+        <span className="store-feature-icon">
+          <i className={f.icon} aria-hidden="true"></i>
+        </span>
+        <div>
+          <h4>{f.title}</h4>
+          <p>{f.description}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
 
 export const StoreDetails: React.FC = () => {
   return (
-    <section className="store-details" id="planno-store-detalhes">
-      <div className="store-details-container">
-        <div className="store-details-grid">
-          {/* Coluna 1: Dores do Mercado */}
-          <div className="comparison-box dores-box" data-reveal="slide-left" data-delay="0">
-            <span className="section-badge negative">
-              <i className="fas fa-circle" aria-hidden="true"></i> Dificuldades no Mercado
-            </span>
-            <h2 className="comparison-title">
-              Cansado de processos manuais e caóticos para vender?
-            </h2>
+    <section className="section store-details" id="planno-store">
+      <div className="section-inner">
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Planno Store</span>
+          <h2>Sua loja vendendo, sem você anotar pedido na mão</h2>
+          <p>
+            Chega de pedido por mensagem, planilha e conferência de pagamento. Na Planno Store o cliente compra sozinho e você acompanha tudo em um painel simples.
+          </p>
+        </div>
 
-            <div className="comparison-items">
-              {dores.map((dor, index) => (
-                <div key={index} className="comparison-item dor-item">
-                  <div className="item-icon-wrapper dor-icon">
-                    <i className="fas fa-times-circle" aria-hidden="true"></i>
-                  </div>
-                  <div className="item-content">
-                    <h3>{dor.title}</h3>
-                    <p>{dor.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="store-columns">
+          <div className="store-col" data-reveal="fade-up">
+            <h3 className="store-col-title">
+              <span>Para o seu cliente</span>
+              Comprar é fácil e rápido
+            </h3>
+            <FeatureList items={journey} />
           </div>
 
-          {/* Coluna 2: Soluções Planno Store */}
-          <div className="comparison-box solucoes-box" data-reveal="slide-right" data-delay="150">
-            <span className="section-badge positive">
-              <i className="fas fa-circle" aria-hidden="true"></i> Como a Planno Store resolve
-            </span>
-            <h2 className="comparison-title">
-              Tudo o que sua loja precisa em um único ecossistema
-            </h2>
+          <div className="store-col" data-reveal="fade-up" data-delay="100">
+            <h3 className="store-col-title">
+              <span>Para você</span>
+              Tudo sob controle em um só lugar
+            </h3>
+            <FeatureList items={admin} />
+          </div>
+        </div>
 
-            <div className="comparison-items">
-              {solucoes.map((sol, index) => (
-                <div key={index} className="comparison-item sol-item">
-                  <div className="item-icon-wrapper sol-icon">
-                    <i className="fas fa-check-circle" aria-hidden="true"></i>
-                  </div>
-                  <div className="item-content">
-                    <h3>{sol.title}</h3>
-                    <p>{sol.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="store-setup" data-reveal="fade-up">
+          <div>
+            <h3>Nós montamos a sua loja. Você só vende.</h3>
+            <p>
+              Cuidamos do design, do domínio, da conexão com o Mercado Pago e do cadastro inicial. Quando a loja for ao ar, é só começar a receber pedidos.
+            </p>
+          </div>
+          <div className="store-setup-actions">
+            <a
+              className="btn btn-primary"
+              href={whatsappLink(WHATSAPP_MESSAGES.store)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero minha loja
+            </a>
+            <Link className="btn btn-ghost" to="/planos?aba=store">
+              Ver planos da Store
+            </Link>
           </div>
         </div>
       </div>
