@@ -148,8 +148,8 @@ const ecommercePlans: EcommercePlan[] = [
       'Painel administrativo da loja',
       'Catálogo de produtos com categorias e imagens',
       'Controle de estoque',
-      'Carrinho, cupons e cálculo de frete',
-      'Checkout integrado ao Mercado Pago',
+      'Carrinho, cupons e formas de entrega',
+      'Pagamento pelo Mercado Pago',
       'Implantação feita pela equipe Planno',
     ],
   },
@@ -165,7 +165,6 @@ const ecommercePlans: EcommercePlan[] = [
       'Tudo incluso no plano Inicial',
       'Resumo de vendas, produtos mais vendidos e pedidos recentes',
       'Promoções e cupons de desconto',
-      'Suporte técnico prioritário',
     ],
   },
   {
@@ -177,8 +176,7 @@ const ecommercePlans: EcommercePlan[] = [
     products: 'Tudo do Intermediário',
     features: [
       'Tudo incluso no plano Intermediário',
-      'Atendimento prioritário em canal direto',
-      'Acompanhamento próximo da equipe Planno',
+      'Atendimento direto com a equipe Planno',
     ],
   },
 ];

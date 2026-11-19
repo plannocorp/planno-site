@@ -203,13 +203,13 @@ export const Home: React.FC = () => {
                     <div className="payment-row">
                       <div className="payment-brand">
                         <i className="fas fa-shield-halved" aria-hidden="true"></i>
-                        <span>Checkout dentro da loja</span>
+                        <span>Pix, cartão e boleto</span>
                       </div>
-                      <span className="status-live">Pagamento seguro</span>
+                      <span className="status-live">Mercado Pago</span>
                     </div>
                     <div className="payment-badges">
                       <span><i className="fas fa-plug" aria-hidden="true"></i> Mercado Pago conectado</span>
-                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Pagamento na loja</span>
+                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Pix, cartão e boleto</span>
                       <span><i className="fas fa-rotate" aria-hidden="true"></i> Status automático</span>
                     </div>
                   </div>

@@ -20,12 +20,12 @@ const faqItems: FaqItem[] = [
   {
     question: 'Consigo usar meu próprio domínio?',
     answer:
-      'Sim. Configuramos o seu site ou a sua loja no domínio da sua marca (por exemplo, www.sualoja.com.br).',
+      'Sim. Configuramos o seu site no domínio da sua marca. A loja nasce em um endereço da Planno e pode usar domínio próprio, que é opcional.',
   },
   {
     question: 'Como funcionam os pagamentos na Planno Store?',
     answer:
-      'O checkout é feito dentro da loja e processado pelo Mercado Pago. Conectamos a sua conta durante a implantação.',
+      'O cliente paga pelo Mercado Pago, com Pix, cartão ou boleto, e o valor cai direto na conta do lojista. Você conecta a sua conta do Mercado Pago pelo painel da loja.',
   },
   {
     question: 'O que a hospedagem e manutenção incluem?',

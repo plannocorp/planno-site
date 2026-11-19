@@ -23,12 +23,12 @@ const journey: Feature[] = [
   {
     icon: 'fas fa-truck',
     title: 'Frete',
-    description: 'O valor do envio é calculado na hora, sem troca de mensagens.',
+    description: 'Você define as formas de entrega e o valor de cada uma, e o cliente escolhe na hora de comprar.',
   },
   {
     icon: 'fas fa-credit-card',
     title: 'Pagamento',
-    description: 'Checkout seguro dentro da loja, com Mercado Pago.',
+    description: 'O cliente paga pelo Mercado Pago (Pix, cartão ou boleto) e o dinheiro vai para a sua conta.',
   },
 ];
 
@@ -41,7 +41,7 @@ const admin: Feature[] = [
   {
     icon: 'fas fa-receipt',
     title: 'Pedidos',
-    description: 'Acompanhe cada pedido e o status do pagamento, sem planilha.',
+    description: 'Acompanhe pagamento, preparo, envio com rastreio e entrega. O cliente vê o andamento do pedido.',
   },
   {
     icon: 'fas fa-chart-column',
@@ -105,7 +105,7 @@ export const StoreDetails: React.FC = () => {
           <div>
             <h3>Nós montamos a sua loja. Você só vende.</h3>
             <p>
-              Cuidamos do design, do domínio, da conexão com o Mercado Pago e do cadastro inicial. Quando a loja for ao ar, é só começar a receber pedidos.
+              Cuidamos do design e da publicação da loja. Você cadastra seus produtos e conecta a sua conta do Mercado Pago pelo painel, com um passo a passo, e começa a receber pedidos.
             </p>
           </div>
           <div className="store-setup-actions">
