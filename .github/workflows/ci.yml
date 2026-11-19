@@ -1,0 +1,32 @@
+name: CI
+
+# Valida cada pull request e cada push nas branches principais.
+# O deploy (produção e prévias) é feito pelo Cloudflare Workers Builds:
+#   - push em `deploy`  -> produção (www.planno.online)
+#   - pull request/branch -> prévia com URL própria
+
+on:
+  pull_request:
+  push:
+    branches: [deploy, homolog]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
