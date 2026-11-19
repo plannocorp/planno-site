@@ -590,3 +590,66 @@ html .header-container {
     margin-left: 4px;
   }
 }
+
+/* Nome do plano em destaque: o texto em degradê branco sumia no fundo claro */
+html .plan-card-featured .plan-name-heading {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--white);
+}
+html .plan-card-featured::after {
+  background: radial-gradient(ellipse 80% 120px at 50% 0%, rgba(69, 88, 216, 0.1), transparent 80%);
+}
+html .plan-card-featured::before {
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+  box-shadow: none;
+}
+
+/* Menu mobile: backdrop-filter no cabeçalho criava um "quadro" para elementos fixos
+   e o menu/fundo escuro ficavam presos à altura do cabeçalho. O desfoque agora fica num pseudo-elemento. */
+html .header,
+html .header-alt {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+html .header::before,
+html .header-alt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+@media screen and (max-width: 992px) {
+  html .mobile-backdrop {
+    background: rgba(19, 29, 51, 0.4);
+  }
+  html .mobile-drawer {
+    background: #f7f8fc;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 24px 40px rgba(19, 29, 51, 0.18);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+  html .mobile-nav-link:hover,
+  html .mobile-nav-link.active {
+    background: rgba(69, 88, 216, 0.08);
+    color: var(--accent);
+  }
+}
+html:has(.mobile-drawer.active) .whatsapp-float {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  html .header-brand {
+    position: relative;
+    z-index: 1002;
+  }
+  html .header-container {
+    position: relative;
+  }
+}
