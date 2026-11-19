@@ -1,7 +1,7 @@
 .como-funciona {
   width: 100%;
   background-color: var(--black-background);
-  border-top: 1px solid rgba(147, 168, 198, 0.08);
+  border-top: 1px solid rgba(195, 209, 230, 0.08);
   padding: 96px 0 108px;
 }
 
@@ -35,8 +35,8 @@
 
 .step-card {
   position: relative;
-  background: rgba(24, 24, 27, 0.5);
-  border: 1px solid rgba(147, 168, 198, 0.1);
+  background: rgba(30, 50, 82, 0.5);
+  border: 1px solid rgba(195, 209, 230, 0.1);
   border-radius: 20px;
   padding: 42px 28px 36px;
   overflow: hidden;
@@ -47,8 +47,8 @@
 
 .step-card:hover {
   transform: translateY(-5px);
-  background: rgba(24, 24, 27, 0.8);
-  border-color: rgba(75, 108, 159, 0.4);
+  background: rgba(30, 50, 82, 0.8);
+  border-color: rgba(107, 140, 196, 0.4);
 }
 
 /* Número gigante decorativo */
@@ -58,7 +58,7 @@
   right: 20px;
   font-size: 3.8rem;
   font-weight: 900;
-  color: rgba(75, 108, 159, 0.18);
+  color: rgba(107, 140, 196, 0.18);
   line-height: 1;
   pointer-events: none;
   user-select: none;

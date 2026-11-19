@@ -10,7 +10,7 @@ import { CertificationBar } from './components/certification-bar/certification-b
 import { Oferecimento } from './pages/oferecimento/oferecimento';
 import StoreDetails from './pages/store-datails/store-details';
 import ComoFunciona from './pages/como-funciona/como-funciona';
-import Equipe from './pages/equipe/equipe';
+import Projetos from './pages/projetos/projetos';
 import Planos from './pages/planos/planos';
 import Faq from './pages/faq/faq';
 import Contato from './pages/contato/contato';
@@ -30,7 +30,7 @@ const LandingPage: React.FC = () => {
         <Oferecimento />
         <StoreDetails />
         <ComoFunciona />
-        <Equipe />
+        <Projetos />
         <Planos />
         <Faq />
         <Contato />

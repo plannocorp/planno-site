@@ -1,7 +1,7 @@
 .store-details {
   width: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(18, 32, 51, 0.45) 0%, var(--black-background) 80%);
-  border-top: 1px solid rgba(147, 168, 198, 0.08);
+  background: radial-gradient(circle at 50% 0%, rgba(26, 46, 77, 0.45) 0%, var(--black-background) 80%);
+  border-top: 1px solid rgba(195, 209, 230, 0.08);
   padding: 100px 0;
   position: relative;
 }

@@ -49,8 +49,8 @@
 }
 
 .contact-info-card {
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   border-radius: 20px;
   padding: 38px 34px;
   flex: 1;
@@ -97,8 +97,8 @@
 
 /* Faixa de Redes Sociais */
 .contact-social-card {
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   border-radius: 20px;
   padding: 24px 32px;
   display: flex;
@@ -139,13 +139,13 @@
   background: var(--mainblue);
   border-color: var(--mainblue);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(75, 108, 159, 0.3);
+  box-shadow: 0 8px 20px rgba(107, 140, 196, 0.3);
 }
 
 /* Lado Direito: Formulário */
 .contact-form-card {
-  background: rgba(24, 24, 27, 0.45);
-  border: 1px solid rgba(147, 168, 198, 0.12);
+  background: rgba(30, 50, 82, 0.45);
+  border: 1px solid rgba(195, 209, 230, 0.12);
   border-radius: 20px;
   padding: 38px 34px;
   display: flex;
@@ -162,7 +162,7 @@
 .form-textarea {
   width: 100%;
   background: var(--black-background);
-  border: 1px solid rgba(147, 168, 198, 0.15);
+  border: 1px solid rgba(195, 209, 230, 0.15);
   border-radius: 14px;
   padding: 0 20px;
   color: var(--white);
@@ -183,13 +183,13 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(147, 168, 198, 0.6);
+  color: rgba(195, 209, 230, 0.6);
 }
 
 .form-input:focus,
 .form-textarea:focus {
   border-color: var(--mainblue);
-  box-shadow: 0 0 0 3px rgba(75, 108, 159, 0.2);
+  box-shadow: 0 0 0 3px rgba(107, 140, 196, 0.2);
 }
 
 .contact-submit-btn {
@@ -211,7 +211,7 @@
 .contact-submit-btn:hover:not(:disabled) {
   background: var(--lightblue);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(75, 108, 159, 0.35);
+  box-shadow: 0 10px 24px rgba(107, 140, 196, 0.35);
 }
 
 .contact-submit-btn:disabled {
