@@ -1,89 +1,114 @@
 import React from 'react';
 import './planos.css';
 import { Link } from 'react-router-dom';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 interface Plan {
-  label: string;
-  title: string;
-  features: string[];
+  name: string;
+  summary: string;
   price: string;
-  buttonText: string;
-  link: string;
+  unit: string;
+  features: string[];
+  cta: string;
+  to?: string;
+  href?: string;
+  featured?: boolean;
 }
 
 const plans: Plan[] = [
   {
-    label: 'Presença Institucional',
-    title: 'Sites, Blogs & LPs',
-    features: [
-      'Landing pages de alta performance',
-      'Hospedagem e SSL ativo inclusos',
-      'Suporte técnico especializado',
-    ],
-    price: '65,99',
-    buttonText: 'Ver detalhes e planos',
-    link: '/planos',
+    name: 'Landing page',
+    summary: 'Para captar contatos e vender um serviço ou produto.',
+    price: 'Peça seu orçamento',
+    unit: 'feita sob medida',
+    features: ['Funciona bem no celular', 'Rápida e preparada para buscadores'],
+    cta: 'Quero meu orçamento',
+    href: whatsappLink(WHATSAPP_MESSAGES.landing),
   },
   {
-    label: 'Planno Store (Ecommerce)',
-    title: 'Lojas virtuais completas',
-    features: [
-      'Planos Start, Pro e Premium',
-      'Domínio .com.br incluso',
-      'Integração Mercado Pago e frete inclusa',
-    ],
-    price: '99,90',
-    buttonText: 'Comparar lojas',
-    link: '/planos',
+    name: 'Site institucional',
+    summary: 'Para a sua empresa passar confiança e ser encontrada.',
+    price: 'Peça seu orçamento',
+    unit: 'feito sob medida',
+    features: ['Todas as páginas que você precisa', 'Visual da sua marca'],
+    cta: 'Quero meu orçamento',
+    href: whatsappLink(WHATSAPP_MESSAGES.site),
+  },
+  {
+    name: 'Planno Store',
+    summary: 'Para abrir a sua loja e começar a vender.',
+    price: 'R$ 129,90',
+    unit: 'a partir de, por mês',
+    features: ['Painel de pedidos e estoque', 'Pagamento pelo Mercado Pago'],
+    cta: 'Ver planos da Store',
+    to: '/planos?aba=store',
+    featured: true,
+  },
+  {
+    name: 'Hospedagem e manutenção',
+    summary: 'Para o seu site ficar sempre no ar.',
+    price: 'R$ 65,99',
+    unit: 'a partir de, por mês',
+    features: ['Hospedagem e SSL', 'Suporte de quem fez o seu site'],
+    cta: 'Ver planos',
+    to: '/planos?aba=manutencao',
   },
 ];
 
 export const Planos: React.FC = () => {
   return (
-    <section className="planos" id="planos">
-      <div className="planos-container">
-        {/* Cabeçalho */}
-        <div className="planos-header">
-          <span className="section-badge">
-            <i className="fas fa-circle" aria-hidden="true"></i> Planos
-          </span>
-          <h2 className="planos-title">Escolha a solução ideal para o seu momento</h2>
-          <p className="planos-subtitle">
-            Compare os planos para presença institucional ou venda online. Todos os planos contam
-            com manutenção técnica da Planno.
+    <section className="section planos" id="planos">
+      <div className="section-inner">
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Valores</span>
+          <h2>Escolha o plano ideal e comece hoje</h2>
+          <p>
+            Preço claro para a Planno Store e para a manutenção. Para sites e landing pages, você recebe um orçamento sob medida antes de decidir.
           </p>
         </div>
 
-        {/* Grid com os 2 cards de planos */}
         <div className="planos-grid">
-          {plans.map((plan, index) => (
-            <div key={index} className="plan-card">
-              <div className="plan-header">
-                <span className="plan-pill">{plan.label}</span>
-                <h3 className="plan-name">{plan.title}</h3>
+          {plans.map((plan, i) => (
+            <article
+              key={plan.name}
+              className={`plan-card ${plan.featured ? 'plan-featured' : ''}`}
+              data-reveal="fade-up"
+              data-delay={i * 80}
+            >
+              <h3>{plan.name}</h3>
+              <p className="plan-summary">{plan.summary}</p>
+              <div className="plan-price">
+                <span>{plan.unit}</span>
+                <strong className={plan.price.startsWith('R$') ? '' : 'price-text'}>{plan.price}</strong>
               </div>
-
-              <ul className="plan-features">
-                {plan.features.map((feature, fIndex) => (
-                  <li key={fIndex}>
-                    <i className="fas fa-circle-check" aria-hidden="true"></i>
-                    <span>{feature}</span>
+              <ul>
+                {plan.features.map((f) => (
+                  <li key={f}>
+                    <i className="fas fa-check" aria-hidden="true"></i> {f}
                   </li>
                 ))}
               </ul>
-
-              <div className="plan-pricing">
-                <span className="price-prefix">A partir de </span>
-                <strong className="price-value">R$ {plan.price}</strong>
-                <span className="price-suffix"> / mês</span>
-              </div>
-
-              <Link to={plan.link} className="plan-cta-btn">
-                {plan.buttonText} <i className="fas fa-arrow-right" aria-hidden="true"></i>
-              </Link>
-            </div>
+              {plan.to ? (
+                <Link to={plan.to} className={`btn ${plan.featured ? 'btn-primary' : 'btn-ghost'}`}>
+                  {plan.cta}
+                </Link>
+              ) : (
+                <a
+                  href={plan.href}
+                  className="btn btn-ghost"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {plan.cta}
+                </a>
+              )}
+            </article>
           ))}
         </div>
+
+        <p className="planos-note">
+          Ficou com dúvida? <a href={whatsappLink(WHATSAPP_MESSAGES.geral)} target="_blank" rel="noopener noreferrer">Fale com a Planno no WhatsApp</a>.
+        </p>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
+import './hero-panel.css';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 type TabType = 'vendas' | 'pedidos' | 'pagamentos';
 
@@ -14,49 +16,54 @@ export const Home: React.FC = () => {
 
   return (
     <section className="home" id="home">
-      <div className={`home-container ${loaded ? 'show-up' : 'hidden-up'}`}>
-        {/* Lado Esquerdo: Textos e Chamadas Principais */}
+      <div className={`home-container ${loaded ? 'is-loaded' : ''}`}>
         <div className="hero-copy">
-          <div className="hero-badges">
-            <span className="hero-badge">
-              <i className="fas fa-circle" aria-hidden="true"></i> Planno Store
-            </span>
-            <span className="hero-badge">
-              <i className="fas fa-bolt" aria-hidden="true"></i> Implantação e Configuração Chave na Mão
-            </span>
-          </div>
+          <span className="eyebrow hero-eyebrow">
+            <span className="eyebrow-dot" aria-hidden="true"></span> Sites, landing pages e lojas virtuais
+          </span>
 
           <h1 className="main-title">
-            Sua presença digital completa, da ideia à loja pronta.
+            Um site que trabalha por você e transforma visitas em clientes.
           </h1>
 
           <p className="main-desc">
-            Criação e implantação completa da sua loja online personalizada pela nossa equipe,
-            ou desenvolvimento sob demanda de sites institucionais, blogs e landing pages de
-            alta conversão. Nós cuidamos do design e da parte técnica para você focar em vender.
+            Criamos landing pages, sites institucionais e lojas virtuais com design profissional, hospedagem e suporte. Você se preocupa só em atender quem chegar.
           </p>
 
           <div className="hero-actions">
             <a
-              className="primary-action btn-whatsapp-hover"
+              className="btn btn-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://wa.me/5562984458858?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20a%20cria%C3%A7%C3%A3o%20da%20minha%20loja%20ou%20site%20personalizado."
+              href={whatsappLink(WHATSAPP_MESSAGES.geral)}
             >
-              Falar no WhatsApp <i className="fab fa-whatsapp" aria-hidden="true"></i>
+              <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero meu orçamento
             </a>
-            <a className="secondary-action" href="#solucoes">
-              Conhecer Soluções
+            <a className="btn btn-ghost" href="#solucoes">
+              Ver o que fazemos
             </a>
           </div>
 
-          <p className="setup-note">
-            <i className="fas fa-check" aria-hidden="true"></i> Consultoria humana.{' '}
-            <span>Nós cuidamos da infraestrutura.</span>
-          </p>
+          <ul className="hero-prices">
+            <li>
+              <span>Landing page</span>
+              <a href={whatsappLink(WHATSAPP_MESSAGES.landing)} target="_blank" rel="noopener noreferrer">
+                Peça seu orçamento <i className="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <span>Site institucional</span>
+              <a href={whatsappLink(WHATSAPP_MESSAGES.site)} target="_blank" rel="noopener noreferrer">
+                Peça seu orçamento <i className="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <span>Planno Store</span>
+              <strong>a partir de R$ 129,90/mês</strong>
+            </li>
+          </ul>
         </div>
 
-        {/* Lado Direito: Card / Painel Interativo Planno Store */}
         <div className="hero-panel">
           <div className="panel-badge-row">
             <span className="panel-eyebrow">
@@ -71,11 +78,9 @@ export const Home: React.FC = () => {
             integramos o Mercado Pago e configuramos seu domínio para você receber sua loja pronta.
           </p>
 
-          {/* Mini Dashboard Interativo */}
           <div className="interactive-dashboard">
-            {/* Barra superior do mockup (estilo OS/Browser) */}
             <div className="dash-window-header">
-              <div className="dash-window-dots">
+              <div className="dash-window-dots" aria-hidden="true">
                 <span className="dot dot-red"></span>
                 <span className="dot dot-yellow"></span>
                 <span className="dot dot-green"></span>
@@ -89,10 +94,11 @@ export const Home: React.FC = () => {
               </span>
             </div>
 
-            {/* Navegação de Abas do Mockup */}
             <div className="dash-tabs" role="tablist">
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTab === 'vendas'}
                 className={`dash-tab ${activeTab === 'vendas' ? 'active' : ''}`}
                 onClick={() => setActiveTab('vendas')}
               >
@@ -100,6 +106,8 @@ export const Home: React.FC = () => {
               </button>
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTab === 'pedidos'}
                 className={`dash-tab ${activeTab === 'pedidos' ? 'active' : ''}`}
                 onClick={() => setActiveTab('pedidos')}
               >
@@ -107,6 +115,8 @@ export const Home: React.FC = () => {
               </button>
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTab === 'pagamentos'}
                 className={`dash-tab ${activeTab === 'pagamentos' ? 'active' : ''}`}
                 onClick={() => setActiveTab('pagamentos')}
               >
@@ -114,42 +124,47 @@ export const Home: React.FC = () => {
               </button>
             </div>
 
-            {/* Conteúdo Dinâmico por Aba */}
             <div className="dash-body">
               {activeTab === 'vendas' && (
                 <div className="dash-view fade-in">
                   <div className="metric-header">
                     <div>
-                      <span className="metric-label">Faturamento do Dia</span>
+                      <span className="metric-label">Faturamento de exemplo</span>
                       <strong className="metric-value">R$ 4.890,00</strong>
                     </div>
                     <span className="metric-growth">
-                      <i className="fas fa-arrow-trend-up" aria-hidden="true"></i> +28.4%
+                      <i className="fas fa-arrow-trend-up" aria-hidden="true"></i> +28,4%
                     </span>
                   </div>
 
-                  {/* Gráfico SVG de curva suave com ponto animado */}
                   <div className="chart-container">
-                    <svg viewBox="0 0 300 80" className="revenue-chart">
+                    <svg viewBox="0 0 310 90" className="revenue-chart" aria-hidden="true">
                       <defs>
                         <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#6579ff" stopOpacity="0.45" />
-                          <stop offset="100%" stopColor="#6579ff" stopOpacity="0.0" />
+                          <stop offset="0%" stopColor="#4558d8" stopOpacity="0.28" />
+                          <stop offset="100%" stopColor="#4558d8" stopOpacity="0" />
                         </linearGradient>
                       </defs>
-                      <path
-                        d="M0,65 C40,60 70,35 110,40 C150,45 190,15 230,22 C265,28 285,10 300,5 L300,80 L0,80 Z"
-                        fill="url(#chartGradient)"
-                      />
-                      <path
-                        d="M0,65 C40,60 70,35 110,40 C150,45 190,15 230,22 C265,28 285,10 300,5"
-                        fill="none"
-                        stroke="#6579ff"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                      />
-                      <circle cx="300" cy="5" r="4" fill="#FAFAFA" stroke="#6579ff" strokeWidth="2" />
+                      <g transform="translate(5 8)">
+                        <path
+                          d="M0,65 C40,60 70,35 110,40 C150,45 190,15 230,22 C265,28 285,10 300,5 L300,76 L0,76 Z"
+                          fill="url(#chartGradient)"
+                        />
+                        <path
+                          d="M0,65 C40,60 70,35 110,40 C150,45 190,15 230,22 C265,28 285,10 300,5"
+                          fill="none"
+                          stroke="#4558d8"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                        />
+                        <circle className="chart-halo" cx="300" cy="5" r="4" fill="#4558d8" />
+                        <circle cx="300" cy="5" r="4" fill="#fff" stroke="#4558d8" strokeWidth="2.5" />
+                      </g>
                     </svg>
+                    <div className="chart-axis">
+                      <span>Início do período</span>
+                      <span>Hoje</span>
+                    </div>
                   </div>
                 </div>
               )}
@@ -162,10 +177,10 @@ export const Home: React.FC = () => {
                         <i className="fas fa-bag-shopping" aria-hidden="true"></i>
                       </div>
                       <div className="order-details">
-                        <strong>Pedido #1042</strong>
-                        <span>Lucas Ramos • 2 itens</span>
+                        <strong>Pedido de exemplo A</strong>
+                        <span>Cliente de exemplo • 2 itens</span>
                       </div>
-                      <span className="order-badge badge-green">Pix • Aprovado</span>
+                      <span className="order-badge badge-green">Pago</span>
                     </div>
 
                     <div className="order-item">
@@ -173,8 +188,8 @@ export const Home: React.FC = () => {
                         <i className="fas fa-bag-shopping" aria-hidden="true"></i>
                       </div>
                       <div className="order-details">
-                        <strong>Pedido #1041</strong>
-                        <span>Mariana Costa • 1 item</span>
+                        <strong>Pedido de exemplo B</strong>
+                        <span>Cliente de exemplo • 1 item</span>
                       </div>
                       <span className="order-badge badge-blue">Enviado</span>
                     </div>
@@ -188,21 +203,20 @@ export const Home: React.FC = () => {
                     <div className="payment-row">
                       <div className="payment-brand">
                         <i className="fas fa-shield-halved" aria-hidden="true"></i>
-                        <span>Checkout Transparente Ativo</span>
+                        <span>Checkout dentro da loja</span>
                       </div>
-                      <span className="status-live">100% Seguro</span>
+                      <span className="status-live">Pagamento seguro</span>
                     </div>
                     <div className="payment-badges">
-                      <span><i className="fas fa-bolt" aria-hidden="true"></i> Pix Automático</span>
-                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Cartão até 12x</span>
-                      <span><i className="fas fa-barcode" aria-hidden="true"></i> Boleto</span>
+                      <span><i className="fas fa-plug" aria-hidden="true"></i> Mercado Pago conectado</span>
+                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Pagamento na loja</span>
+                      <span><i className="fas fa-rotate" aria-hidden="true"></i> Status automático</span>
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Rodapé com chips de integração */}
             <div className="dash-footer">
               <div className="feature-chip">
                 <i className="fas fa-check" aria-hidden="true"></i> Domínio Incluso
@@ -215,6 +229,7 @@ export const Home: React.FC = () => {
               </div>
             </div>
           </div>
+          <p className="panel-note">Ilustração com dados de exemplo.</p>
         </div>
       </div>
     </section>

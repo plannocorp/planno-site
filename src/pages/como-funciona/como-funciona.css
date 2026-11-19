@@ -1,104 +1,48 @@
 .como-funciona {
-  width: 100%;
-  background-color: var(--black-background);
-  border-top: 1px solid rgba(195, 209, 230, 0.08);
-  padding: 96px 0 108px;
+  background: var(--black-background);
 }
 
-.como-funciona-container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.como-funciona-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 56px;
-}
-
-.como-funciona-title {
-  color: var(--white);
-  font-size: clamp(28px, 3.6vw, 42px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-top: 16px;
-}
-
-/* Grid com 4 colunas no Desktop */
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 20px;
 }
 
 .step-card {
-  position: relative;
-  background: rgba(30, 50, 82, 0.5);
-  border: 1px solid rgba(195, 209, 230, 0.1);
-  border-radius: 20px;
-  padding: 42px 28px 36px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 2px solid var(--accent);
+  padding: 22px 4px 0;
 }
 
-.step-card:hover {
-  transform: translateY(-5px);
-  background: rgba(30, 50, 82, 0.8);
-  border-color: rgba(107, 140, 196, 0.4);
-}
-
-/* Número gigante decorativo */
 .step-num {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  font-size: 3.8rem;
-  font-weight: 900;
-  color: rgba(107, 140, 196, 0.18);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mainblue);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
 }
 
 .step-title {
-  color: var(--white);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 10px;
 }
 
 .step-description {
   color: var(--lightblue);
-  font-size: 14px;
-  line-height: 1.65;
-  position: relative;
-  z-index: 1;
+  font-size: 14.5px;
+  line-height: 1.7;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .steps-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 32px 24px;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .como-funciona {
-    padding: 64px 0 80px;
-  }
-
+@media screen and (max-width: 560px) {
   .steps-grid {
     grid-template-columns: 1fr;
-  }
-
-  .step-card {
-    padding: 36px 24px 30px;
   }
 }

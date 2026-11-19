@@ -1,83 +1,116 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './oferecimento.css';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
+
+interface Solution {
+  icon: string;
+  name: string;
+  tagline: string;
+  price: string;
+  priceNote: string;
+  features: string[];
+  cta: string;
+  href: string;
+  external?: boolean;
+  featured?: boolean;
+}
+
+const solutions: Solution[] = [
+  {
+    icon: 'fas fa-rectangle-ad',
+    name: 'Landing page',
+    tagline: 'Para campanhas, lançamentos e serviços: uma página criada para convencer e gerar contatos.',
+    price: 'Peça seu orçamento',
+    priceNote: 'feita sob medida para você',
+    features: ['Visual profissional em qualquer celular', 'Carregamento rápido e pronta para o Google', 'Chamada clara para o cliente falar com você'],
+    cta: 'Quero minha landing page',
+    href: whatsappLink(WHATSAPP_MESSAGES.landing),
+    external: true,
+  },
+  {
+    icon: 'fas fa-building',
+    name: 'Site institucional',
+    tagline: 'Apresente a sua empresa com o profissionalismo que os seus clientes esperam encontrar.',
+    price: 'Peça seu orçamento',
+    priceNote: 'feito sob medida para você',
+    features: ['Design exclusivo com a cara da sua marca', 'Todas as páginas que o seu negócio precisa', 'Rápido, seguro e pronto para o Google'],
+    cta: 'Quero meu site',
+    href: whatsappLink(WHATSAPP_MESSAGES.site),
+    external: true,
+  },
+  {
+    icon: 'fas fa-bag-shopping',
+    name: 'Planno Store',
+    tagline: 'Venda o dia todo com uma loja completa: produtos, estoque, pedidos e pagamento em um só lugar.',
+    price: 'R$ 129,90',
+    priceNote: 'a partir de, por mês',
+    features: ['Receba pelo Mercado Pago', 'Controle de estoque e pedidos', 'Montamos a loja para você'],
+    cta: 'Quero vender online',
+    href: '#planno-store',
+    featured: true,
+  },
+];
 
 export const Oferecimento: React.FC = () => {
   return (
-    <section className="oferecimento" id="solucoes">
-      <div className="oferecimento-container">
-        {/* Cabeçalho da Seção */}
-        <div className="oferecimento-header" data-reveal="fade-up">
-          <div className="oferecimento-badge">
-            <i className="fas fa-circle" aria-hidden="true"></i> O QUE OFERECEMOS
-          </div>
-          <h2 className="oferecimento-title">Soluções digitais completas</h2>
+    <section className="section oferecimento" id="solucoes">
+      <div className="section-inner">
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Soluções</span>
+          <h2>Tudo o que o seu negócio precisa para vender online</h2>
+          <p>
+            Do primeiro clique do cliente até o pagamento, a Planno cuida da estrutura para você vender mais.
+          </p>
         </div>
 
-        {/* Grid com os 2 Cards de Solução */}
-        <div className="oferecimento-grid">
-          {/* Card 1: Planno Store (Destaque) */}
-          <div className="solution-card solution-card-highlight" data-reveal="fade-up" data-delay="0">
-            <div className="card-top-row">
-              <div className="card-title-group">
-                <i className="fas fa-bag-shopping card-main-icon" aria-hidden="true"></i>
-                <h3 className="card-title">Planno Store</h3>
+        <div className="solutions-grid">
+          {solutions.map((s, i) => (
+            <article
+              key={s.name}
+              className={`solution-card ${s.featured ? 'solution-featured' : ''}`}
+              data-reveal="fade-up"
+              data-delay={i * 100}
+            >
+              {s.featured && <span className="solution-flag">Mais procurado</span>}
+              <i className={`${s.icon} solution-icon`} aria-hidden="true"></i>
+              <h3>{s.name}</h3>
+              <p className="solution-tagline">{s.tagline}</p>
+
+              <div className="solution-price">
+                <span>{s.priceNote}</span>
+                <strong className={s.price.startsWith('R$') ? '' : 'price-text'}>{s.price}</strong>
               </div>
-              <span className="card-pill">MAIS PROCURADO</span>
-            </div>
 
-            <p className="card-description">
-              Lojas virtuais estruturadas, seguras e personalizadas. O produto ideal para você
-              vender seus produtos online com gerenciamento simples de estoque, fluxo de pedidos e
-              pagamentos via Mercado Pago.
+              <ul className="solution-features">
+                {s.features.map((f) => (
+                  <li key={f}>
+                    <i className="fas fa-check" aria-hidden="true"></i> {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                className={`btn ${s.featured ? 'btn-primary' : 'btn-ghost'}`}
+                href={s.href}
+                {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {s.cta}
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div className="maintenance-strip" data-reveal="fade-up">
+          <div>
+            <h3>Seu site sempre no ar, seguro e atualizado</h3>
+            <p>
+              Hospedagem, SSL, backups e suporte de quem conhece o seu projeto. A partir de R$ 65,99/mês.
             </p>
-
-            <ul className="card-checklist">
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Painel administrativo completo
-              </li>
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Controle de estoque e catálogo
-              </li>
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Checkout integrado (cartão/Pix)
-              </li>
-            </ul>
-
-            <a href="#planos" className="card-cta-link">
-              Conhecer a plataforma <i className="fas fa-arrow-right" aria-hidden="true"></i>
-            </a>
           </div>
-
-          {/* Card 2: Sites & Landing Pages */}
-          <div className="solution-card" data-reveal="fade-up" data-delay="150">
-            <div className="card-top-row">
-              <div className="card-title-group">
-                <i className="fas fa-laptop-code card-main-icon" aria-hidden="true"></i>
-                <h3 className="card-title">Sites & Landing Pages</h3>
-              </div>
-            </div>
-
-            <p className="card-description">
-              Criação de páginas focadas em captação de leads, lançamento de produtos, blogs de
-              conteúdo ou sites institucionais sob medida para sua marca ter autoridade digital imediata.
-            </p>
-
-            <ul className="card-checklist">
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Design otimizado para celulares
-              </li>
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Otimização de velocidade e SEO
-              </li>
-              <li>
-                <i className="fas fa-check" aria-hidden="true"></i> Manutenção técnica e suporte ativo
-              </li>
-            </ul>
-
-            <a href="#planos" className="card-cta-link">
-              Ver planos de hospedagem <i className="fas fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
+          <Link to="/planos?aba=manutencao" className="btn btn-ghost">
+            Ver planos de manutenção
+          </Link>
         </div>
       </div>
     </section>

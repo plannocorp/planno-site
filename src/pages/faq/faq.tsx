@@ -8,51 +8,52 @@ interface FaqItem {
 
 const faqItems: FaqItem[] = [
   {
+    question: 'Quanto custa um site ou uma loja virtual?',
+    answer:
+      'Landing pages e sites institucionais são orçados de acordo com o que você precisa, e você sabe o valor antes de fechar. A Planno Store parte de R$ 129,90 por mês.',
+  },
+  {
     question: 'Preciso entender de tecnologia para ter a loja virtual?',
     answer:
-      'Não. Nossa equipe cuida de toda a configuração, integração e implantação inicial. Você recebe a loja pronta e aprende a usar o painel simples.',
+      'Não. Nossa equipe cuida da configuração, da integração de pagamento e da implantação inicial. Você recebe a loja pronta e aprende a usar o painel.',
   },
   {
-    question: 'Consigo usar meu próprio domínio registrado?',
+    question: 'Consigo usar meu próprio domínio?',
     answer:
-      'Sim. Configuramos sua loja ou site sob o seu domínio próprio (ex: www.sualoja.com.br) de forma transparente e segura.',
+      'Sim. Configuramos o seu site ou a sua loja no domínio da sua marca (por exemplo, www.sualoja.com.br).',
   },
   {
-    question: 'Como funciona o suporte pós-implantação?',
+    question: 'Como funcionam os pagamentos na Planno Store?',
     answer:
-      'Oferecemos suporte técnico ativo incluído no seu plano de manutenção mensal para garantir estabilidade, segurança e atualizações da infraestrutura.',
+      'O checkout é feito dentro da loja e processado pelo Mercado Pago. Conectamos a sua conta durante a implantação.',
   },
   {
-    question: 'O checkout Mercado Pago é seguro?',
+    question: 'O que a hospedagem e manutenção incluem?',
     answer:
-      'Sim, é um checkout transparente criptografado com SSL. O cliente realiza pagamentos direto na sua loja com Pix ou Cartão com segurança máxima.',
+      'Hospedagem, certificado SSL, backups e suporte técnico da Planno, a partir de R$ 65,99 por mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
+  },
+  {
+    question: 'Posso ver trabalhos que a Planno já fez?',
+    answer:
+      'Sim. Na seção Projetos você acessa sites que já estão no ar. Se quiser algo parecido, é só chamar no WhatsApp.',
   },
 ];
 
 export const Faq: React.FC = () => {
   return (
-    <section className="faq" id="faq">
+    <section className="section faq" id="faq">
       <div className="faq-container">
-        {/* Cabeçalho */}
-        <div className="faq-header" data-reveal="fade-up">
-          <span className="section-badge">
-            <i className="fas fa-circle" aria-hidden="true"></i> Perguntas Frequentes
-          </span>
-          <h2 className="faq-title">Dúvidas Frequentes</h2>
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Perguntas frequentes</span>
+          <h2>Tire suas dúvidas antes de decidir</h2>
         </div>
 
-        {/* Grid de Perguntas escalonado */}
-        <div className="faq-grid">
-          {faqItems.map((item, index) => (
-            <div
-              key={index}
-              className="faq-card"
-              data-reveal="fade-up"
-              data-delay={index * 80}
-            >
-              <h3 className="faq-question">{item.question}</h3>
-              <p className="faq-answer">{item.answer}</p>
-            </div>
+        <div className="faq-list" data-reveal="fade-up">
+          {faqItems.map((item) => (
+            <details key={item.question} className="faq-item">
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
           ))}
         </div>
       </div>

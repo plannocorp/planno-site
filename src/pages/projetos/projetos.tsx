@@ -1,5 +1,6 @@
 import React from 'react';
 import './projetos.css';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 interface ProjectLink {
   label: string;
@@ -41,16 +42,12 @@ const projects: Project[] = [
 
 export const Projetos: React.FC = () => {
   return (
-    <section className="projetos" id="projetos">
+    <section className="section projetos" id="projetos">
       <div className="projetos-container">
-        <div className="projetos-header" data-reveal="fade-up">
-          <span className="section-badge">
-            <i className="fas fa-circle" aria-hidden="true"></i> Projetos
-          </span>
-          <h2 className="projetos-title">Alguns projetos que já entregamos</h2>
-          <p className="projetos-subtitle">
-            Lojas, sites e páginas criados pela Planno. Clique para ver cada um funcionando.
-          </p>
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Projetos</span>
+          <h2>Veja o que já entregamos</h2>
+          <p>Projetos reais, no ar e funcionando. Navegue e imagine o seu.</p>
         </div>
 
         <div className="projetos-grid">
@@ -67,6 +64,8 @@ export const Projetos: React.FC = () => {
                     src={`${import.meta.env.BASE_URL}${project.image}`}
                     alt={`Prévia do site ${project.name}`}
                     loading="lazy"
+                    width={800}
+                    height={500}
                   />
                 ) : (
                   <span className="projeto-preview-fallback" aria-hidden="true">
@@ -88,11 +87,24 @@ export const Projetos: React.FC = () => {
                     rel="noopener noreferrer"
                   >
                     {link.label} <span aria-hidden="true">↗</span>
+                    <span className="sr-only"> (abre em nova aba)</span>
                   </a>
                 ))}
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="projetos-cta" data-reveal="fade-up">
+          <p>Gostou? O próximo projeto pode ser o seu.</p>
+          <a
+            className="btn btn-whatsapp"
+            href={whatsappLink(WHATSAPP_MESSAGES.projeto)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero um site assim
+          </a>
         </div>
       </div>
     </section>

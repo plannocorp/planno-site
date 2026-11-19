@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
 import logoImg from '../../assets/Logo.png';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 interface NavItem {
   label: string;
@@ -9,6 +10,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Início', href: '#home' },
+  { label: 'Soluções', href: '#solucoes' },
+  { label: 'Planno Store', href: '#planno-store' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Planos', href: '#planos' },
   { label: 'FAQ', href: '#faq' },
@@ -48,7 +51,7 @@ export const Header: React.FC = () => {
 
   // ScrollSpy Inteligente: auto-ordena pelas posições reais no DOM
   useEffect(() => {
-    const sectionIds = ['home', 'projetos', 'planos', 'faq', 'contato'];
+    const sectionIds = ['home', 'solucoes', 'planno-store', 'projetos', 'planos', 'faq', 'contato'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 180; // Ponto focal abaixo do header
@@ -101,8 +104,8 @@ export const Header: React.FC = () => {
     <header className="header">
       <div className="header-container">
         {/* Marca / Logo */}
-        <a href="#home" className="header-brand" onClick={() => closeMenu('#home')}>
-          <img src={logoImg} alt="Planno Logo" className="header-logo" />
+        <a href="#home" className="header-brand" onClick={() => closeMenu('#home')} aria-label="Planno, ir ao início">
+          <img src={logoImg} alt="Planno" className="header-logo" width={90} height={60} />
         </a>
 
         {/* Navegação Desktop */}
@@ -113,6 +116,7 @@ export const Header: React.FC = () => {
                 <a
                   href={item.href}
                   className={`header-nav-link ${activeItem === item.href ? 'active' : ''}`}
+                  aria-current={activeItem === item.href ? 'true' : undefined}
                   onClick={() => setActiveItem(item.href)}
                 >
                   {item.label}
@@ -121,11 +125,12 @@ export const Header: React.FC = () => {
             ))}
             <li>
               <a
-                href="#planos"
+                href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="header-cta"
-                onClick={() => setActiveItem('#planos')}
               >
-                Assinar agora
+                Quero meu orçamento
               </a>
             </li>
           </ul>
@@ -138,6 +143,7 @@ export const Header: React.FC = () => {
           onClick={toggleMenu}
           aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           <span className="toggle-bar"></span>
           <span className="toggle-bar"></span>
@@ -151,13 +157,14 @@ export const Header: React.FC = () => {
         onClick={() => setIsMenuOpen(false)}
       />
 
-      <div className={`mobile-drawer ${isMenuOpen ? 'active' : ''}`}>
+      <div id="mobile-menu" className={`mobile-drawer ${isMenuOpen ? 'active' : ''}`}>
         <ul className="mobile-nav-list">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 className={`mobile-nav-link ${activeItem === item.href ? 'active' : ''}`}
+                aria-current={activeItem === item.href ? 'true' : undefined}
                 onClick={() => closeMenu(item.href)}
               >
                 {item.label}
@@ -166,11 +173,13 @@ export const Header: React.FC = () => {
           ))}
           <li className="mobile-cta-wrapper">
             <a
-              href="#planos"
+              href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="header-cta mobile-cta"
-              onClick={() => closeMenu('#planos')}
+              onClick={() => setIsMenuOpen(false)}
             >
-              Assinar agora
+              Quero meu orçamento
             </a>
           </li>
         </ul>

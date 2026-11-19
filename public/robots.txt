@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /superadmin/
+
+Sitemap: https://www.planno.online/sitemap.xml

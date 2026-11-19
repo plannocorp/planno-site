@@ -10,55 +10,49 @@ interface Step {
 const steps: Step[] = [
   {
     stepNum: '01',
-    title: 'Entre em contato',
-    description: 'Fale diretamente conosco pelo WhatsApp. Alinhamento próximo e humano desde o primeiro contato.',
+    title: 'Você chama no WhatsApp',
+    description: 'Conte a sua ideia e tire as dúvidas direto com quem faz o projeto.',
   },
   {
     stepNum: '02',
-    title: 'Alinhamento e Estrutura',
-    description: 'Entendemos o catálogo do seu negócio, as suas preferências de identidade visual e de branding.',
+    title: 'Você recebe um orçamento claro',
+    description: 'Você sabe o que vai receber e quanto vai pagar antes de começar.',
   },
   {
     stepNum: '03',
-    title: 'Nós configuramos tudo',
-    description: 'Criamos o domínio, conectamos seu Mercado Pago, definimos o design e cadastramos as primeiras categorias.',
+    title: 'Nós criamos tudo',
+    description: 'Design, domínio e configurações, e na loja, pagamentos e cadastro inicial.',
   },
   {
     stepNum: '04',
-    title: 'Comece a vender!',
-    description: 'Entregamos a loja 100% configurada. A partir daí, gerencie tudo de forma simples no painel administrativo.',
+    title: 'Você começa a vender',
+    description: 'Projeto no ar e suporte para o que você precisar.',
   },
 ];
 
 export const ComoFunciona: React.FC = () => {
   return (
-    <section className="como-funciona" id="como-funciona">
-      <div className="como-funciona-container">
-        {/* Cabeçalho centralizado */}
-        <div className="como-funciona-header" data-reveal="fade-up">
-          <span className="section-badge">
-            <i className="fas fa-circle" aria-hidden="true"></i> Fluxo de Contratação
-          </span>
-          <h2 className="como-funciona-title">
-            Sua loja configurada e pronta para vender em 4 passos
-          </h2>
+    <section className="section como-funciona" id="como-funciona">
+      <div className="section-inner">
+        <div className="section-head" data-reveal="fade-up">
+          <span className="eyebrow">Como funciona</span>
+          <h2>Simples do começo ao fim</h2>
         </div>
 
-        {/* Grid com os 4 passos uniformes escalonados */}
-        <div className="steps-grid">
+        <ol className="steps-grid">
           {steps.map((step, index) => (
-            <div
+            <li
               key={step.stepNum}
               className="step-card"
               data-reveal="fade-up"
-              data-delay={index * 100}
+              data-delay={index * 80}
             >
               <span className="step-num">{step.stepNum}</span>
               <h3 className="step-title">{step.title}</h3>
               <p className="step-description">{step.description}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
