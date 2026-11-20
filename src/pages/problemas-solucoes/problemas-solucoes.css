@@ -1,0 +1,84 @@
+.problemas {
+  background: var(--black-background);
+}
+
+.problemas-table-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.problemas-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.problemas-table th,
+.problemas-table td {
+  padding: 18px 24px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.problemas-table th {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+}
+
+.problemas-table th:first-child {
+  color: #b42318;
+  background: rgba(180, 35, 24, 0.05);
+}
+
+.problemas-table th:last-child {
+  color: #1f7a36;
+  background: rgba(31, 138, 59, 0.07);
+}
+
+.problemas-table th i {
+  margin-right: 6px;
+}
+
+.problemas-table td:first-child {
+  color: var(--lightblue);
+}
+
+.problemas-table td:last-child {
+  color: var(--white);
+  font-weight: 600;
+  border-left: 1px solid var(--line);
+}
+
+.problemas-table th:last-child {
+  border-left: 1px solid var(--line);
+}
+
+.problemas-table tbody tr + tr td {
+  border-top: 1px solid var(--line);
+}
+
+@media screen and (max-width: 560px) {
+  .problemas-table th,
+  .problemas-table td {
+    padding: 14px 14px;
+    font-size: 14.5px;
+  }
+  .problemas-table th {
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+  }
+  .problemas-table th i {
+    display: block;
+    margin: 0 0 6px;
+  }
+}

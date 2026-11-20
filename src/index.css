@@ -277,6 +277,7 @@ select:focus-visible {
   text-align: center;
 }
 
+.section-head h1,
 .section-head h2 {
   font-size: clamp(28px, 3.6vw, 42px);
   line-height: 1.15;
@@ -330,4 +331,17 @@ main {
 }
 section[id] {
   scroll-margin-top: 84px;
+}
+
+/* CTA centralizado ao final de uma seção */
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .section-cta .btn {
+    width: 100%;
+  }
 }

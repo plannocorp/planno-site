@@ -28,18 +28,6 @@
   border-color: rgba(91, 111, 240, 0.5);
 }
 
-.solution-flag {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #b3bffa;
-  background: rgba(91, 111, 240, 0.2);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
 .solution-icon {
   font-size: 22px;
   color: var(--mainblue);
@@ -53,76 +41,17 @@
 }
 
 .solution-tagline {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.solution-description {
   color: var(--lightblue);
   font-size: 15px;
-  line-height: 1.65;
-  min-height: 74px;
-}
-
-.solution-price {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 20px 0;
-  margin: 18px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.solution-price span {
-  font-size: 13px;
-  color: var(--mainblue);
-}
-
-.solution-price strong {
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.solution-features {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 28px;
-  flex: 1;
-}
-
-.solution-features li {
-  display: flex;
-  gap: 10px;
-  font-size: 14.5px;
-  color: var(--lightblue);
-  line-height: 1.5;
-}
-
-.solution-features i {
-  color: #7fd884;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.maintenance-strip {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 28px;
-  border: 1px dashed rgba(195, 209, 230, 0.28);
-  border-radius: 16px;
-}
-
-.maintenance-strip h3 {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
-.maintenance-strip p {
-  color: var(--lightblue);
-  font-size: 14.5px;
-  line-height: 1.6;
-  max-width: 640px;
+  line-height: 1.7;
 }
 
 @media screen and (max-width: 992px) {
@@ -130,12 +59,5 @@
     grid-template-columns: 1fr;
     max-width: 560px;
     margin: 0 auto;
-  }
-  .solution-tagline {
-    min-height: 0;
-  }
-  .maintenance-strip {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

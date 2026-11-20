@@ -1,5 +1,6 @@
 import React from 'react';
 import './como-funciona.css';
+import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 interface Step {
   stepNum: string;
@@ -10,33 +11,33 @@ interface Step {
 const steps: Step[] = [
   {
     stepNum: '01',
-    title: 'Você chama no WhatsApp',
-    description: 'Conte a sua ideia e tire as dúvidas direto com quem faz o projeto.',
+    title: 'Você conta sua ideia.',
+    description: 'Entendemos seu negócio, seus objetivos e o que você precisa.',
   },
   {
     stepNum: '02',
-    title: 'Você recebe um orçamento claro',
-    description: 'Você sabe o que vai receber e quanto vai pagar antes de começar.',
+    title: 'Planejamos a solução.',
+    description: 'Definimos a estrutura, as funcionalidades e a identidade do projeto.',
   },
   {
     stepNum: '03',
-    title: 'Nós criamos tudo',
-    description: 'Design, domínio e configurações, e na loja, pagamentos e cadastro inicial.',
+    title: 'Colocamos a mão no código.',
+    description: 'Desenvolvemos, personalizamos e configuramos sua solução digital.',
   },
   {
     stepNum: '04',
-    title: 'Você começa a vender',
-    description: 'Projeto no ar e suporte para o que você precisar.',
+    title: 'Seu projeto ganha vida.',
+    description: 'Publicamos, orientamos você sobre o uso e seguimos com o suporte contratado.',
   },
 ];
 
 export const ComoFunciona: React.FC = () => {
   return (
-    <section className="section como-funciona" id="como-funciona">
+    <section className="section como-funciona" id="como-funciona" aria-labelledby="como-funciona-titulo">
       <div className="section-inner">
         <div className="section-head" data-reveal="fade-up">
           <span className="eyebrow">Como funciona</span>
-          <h2>Simples do começo ao fim</h2>
+          <h2 id="como-funciona-titulo">Da sua ideia ao digital. Sem complicar.</h2>
         </div>
 
         <ol className="steps-grid">
@@ -53,6 +54,17 @@ export const ComoFunciona: React.FC = () => {
             </li>
           ))}
         </ol>
+
+        <div className="section-cta" data-reveal="fade-up">
+          <a
+            className="btn btn-primary"
+            href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tirar meu projeto do papel
+          </a>
+        </div>
       </div>
     </section>
   );

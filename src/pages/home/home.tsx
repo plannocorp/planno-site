@@ -18,50 +18,32 @@ export const Home: React.FC = () => {
     <section className="home" id="home">
       <div className={`home-container ${loaded ? 'is-loaded' : ''}`}>
         <div className="hero-copy">
-          <span className="eyebrow hero-eyebrow">
-            <span className="eyebrow-dot" aria-hidden="true"></span> Sites, landing pages e lojas virtuais
-          </span>
-
           <h1 className="main-title">
-            Um site que trabalha por você e transforma visitas em clientes.
+            Seu negócio merece mais do que estar online. Merece se destacar.
           </h1>
 
           <p className="main-desc">
-            Criamos landing pages, sites institucionais e lojas virtuais com design profissional, hospedagem e suporte. Você se preocupa só em atender quem chegar.
+            Criamos sites modernos, estratégicos e personalizados para transformar sua presença digital em novas oportunidades de negócio.
           </p>
 
           <div className="hero-actions">
             <a
-              className="btn btn-whatsapp"
+              className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
-              href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+              href={whatsappLink(WHATSAPP_MESSAGES.site)}
             >
-              <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero meu orçamento
+              <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero meu novo site
             </a>
             <a className="btn btn-ghost" href="#solucoes">
-              Ver o que fazemos
+              Conhecer soluções
             </a>
           </div>
 
-          <ul className="hero-prices">
-            <li>
-              <span>Landing page</span>
-              <a href={whatsappLink(WHATSAPP_MESSAGES.landing)} target="_blank" rel="noopener noreferrer">
-                Peça seu orçamento <i className="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <span>Site institucional</span>
-              <a href={whatsappLink(WHATSAPP_MESSAGES.site)} target="_blank" rel="noopener noreferrer">
-                Peça seu orçamento <i className="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <span>Planno Store</span>
-              <strong>a partir de R$ 129,90/mês</strong>
-            </li>
-          </ul>
+          <p className="hero-tagline">
+            <strong>Design com propósito. Tecnologia com estratégia.</strong>
+            <span>Resultados que começam com uma boa experiência.</span>
+          </p>
         </div>
 
         <div className="hero-panel">
@@ -69,14 +51,7 @@ export const Home: React.FC = () => {
             <span className="panel-eyebrow">
               <span className="pulse-dot"></span> Destaque: Planno Store
             </span>
-            <span className="panel-tag">Chave na Mão</span>
           </div>
-
-          <h2>Sua loja virtual pronta para vender, configurada por quem entende.</h2>
-          <p className="panel-description">
-            Não entregamos apenas uma plataforma fria. Nós cuidamos do design personalizado,
-            integramos o Mercado Pago e configuramos seu domínio para você receber sua loja pronta.
-          </p>
 
           <div className="interactive-dashboard">
             <div className="dash-window-header">
@@ -203,13 +178,13 @@ export const Home: React.FC = () => {
                     <div className="payment-row">
                       <div className="payment-brand">
                         <i className="fas fa-shield-halved" aria-hidden="true"></i>
-                        <span>Pix, cartão e boleto</span>
+                        <span>Pix e cartão</span>
                       </div>
                       <span className="status-live">Mercado Pago</span>
                     </div>
                     <div className="payment-badges">
                       <span><i className="fas fa-plug" aria-hidden="true"></i> Mercado Pago conectado</span>
-                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Pix, cartão e boleto</span>
+                      <span><i className="fas fa-credit-card" aria-hidden="true"></i> Pix e cartão</span>
                       <span><i className="fas fa-rotate" aria-hidden="true"></i> Status automático</span>
                     </div>
                   </div>
@@ -219,13 +194,13 @@ export const Home: React.FC = () => {
 
             <div className="dash-footer">
               <div className="feature-chip">
-                <i className="fas fa-check" aria-hidden="true"></i> Domínio Incluso
+                <i className="fas fa-check" aria-hidden="true"></i> Domínio próprio
               </div>
               <div className="feature-chip">
                 <i className="fas fa-check" aria-hidden="true"></i> Mercado Pago
               </div>
               <div className="feature-chip">
-                <i className="fas fa-check" aria-hidden="true"></i> Painel Simples
+                <i className="fas fa-check" aria-hidden="true"></i> Painel simples
               </div>
             </div>
           </div>
