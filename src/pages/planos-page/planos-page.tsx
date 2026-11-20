@@ -108,9 +108,9 @@ interface CreationPlan {
 const creationPlans: CreationPlan[] = [
   {
     id: 'landing',
-    name: 'Landing page',
+    name: 'Landing Page',
     badge: 'Captação de contatos',
-    desc: 'Uma página objetiva para divulgar um serviço, lançar um produto ou captar contatos.',
+    desc: 'Uma página. Um objetivo. Uma experiência pensada para converter.',
     features: [
       'Design responsivo, otimizado para celulares',
       'Otimização de velocidade e SEO',
@@ -123,7 +123,7 @@ const creationPlans: CreationPlan[] = [
     id: 'institucional',
     name: 'Site institucional',
     badge: 'Presença profissional',
-    desc: 'Um site com várias páginas para apresentar sua empresa e ganhar autoridade digital.',
+    desc: 'A primeira impressão da sua empresa merece ser memorável.',
     features: [
       'Páginas e estrutura sob medida',
       'Identidade visual alinhada à marca',
@@ -149,7 +149,7 @@ const ecommercePlans: EcommercePlan[] = [
       'Catálogo de produtos com categorias e imagens',
       'Controle de estoque',
       'Carrinho, cupons e formas de entrega',
-      'Pagamento pelo Mercado Pago',
+      'Pagamentos por Pix e cartão via Mercado Pago',
       'Implantação feita pela equipe Planno',
     ],
   },
@@ -184,7 +184,7 @@ const ecommercePlans: EcommercePlan[] = [
 export const PlanosPage: React.FC = () => {
   usePageMeta(
     'Planos e valores | Planno',
-    'Landing pages e sites institucionais sob orçamento, Planno Store a partir de R$ 129,90/mês e planos de hospedagem e manutenção.'
+    'Sites e Landing Pages a partir de R$ 65,90/mês, com hospedagem, SSL e suporte técnico. Planno Store a partir de R$ 129,90/mês, com gestão de produtos e integração de pagamentos.'
   );
   const [searchParams, setSearchParams] = useSearchParams();
   const tab = searchParams.get('aba');
@@ -228,11 +228,11 @@ export const PlanosPage: React.FC = () => {
             </div>
 
             <h1 className="pricing-hero-title">
-              Escolha o seu plano e comece a vender
+              O próximo passo do seu negócio cabe no seu planejamento.
             </h1>
 
             <p className="pricing-hero-desc">
-              Crie o seu site, abra a sua loja com a Planno Store ou mantenha tudo no ar com a nossa manutenção.
+              A solução certa para o momento do seu negócio: sites e landing pages a partir de R$ 65,90/mês e a Planno Store a partir de R$ 129,90/mês.
             </p>
 
             <div className="hero-control-dock">
@@ -250,7 +250,7 @@ export const PlanosPage: React.FC = () => {
                   </div>
                   <div className="category-btn-text">
                     <span className="category-btn-title">Criação de sites</span>
-                    <span className="category-btn-sub">Landing page e site institucional</span>
+                    <span className="category-btn-sub">Landing Pages e sites institucionais</span>
                   </div>
                 </button>
 
@@ -265,8 +265,8 @@ export const PlanosPage: React.FC = () => {
                     <i className="fas fa-server" aria-hidden="true"></i>
                   </div>
                   <div className="category-btn-text">
-                    <span className="category-btn-title">Hospedagem e manutenção</span>
-                    <span className="category-btn-sub">Seu site no ar, seguro e atualizado</span>
+                    <span className="category-btn-title">Sites e Landing Pages</span>
+                    <span className="category-btn-sub">Hospedagem, SSL e suporte técnico</span>
                   </div>
                 </button>
 
@@ -282,7 +282,7 @@ export const PlanosPage: React.FC = () => {
                   </div>
                   <div className="category-btn-text">
                     <span className="category-btn-title">Planno Store</span>
-                    <span className="category-btn-sub">Loja virtual com catálogo e checkout</span>
+                    <span className="category-btn-sub">Sua estrutura de vendas online</span>
                   </div>
                 </button>
               </div>
@@ -545,8 +545,8 @@ export const PlanosPage: React.FC = () => {
                 <div className="perk-icon-box">
                   <i className="fas fa-comments" aria-hidden="true"></i>
                 </div>
-                <h3>Atendimento Próximo</h3>
-                <p>Fale diretamente com os especialistas que cuidam do seu site via WhatsApp.</p>
+                <h3>Suporte próximo</h3>
+                <p>Atendimento humano para orientar você nas etapas do projeto e no suporte previsto em seu plano.</p>
               </div>
             </div>
           </div>
@@ -560,8 +560,8 @@ export const PlanosPage: React.FC = () => {
                 <span className="section-badge">
                   <i className="fas fa-lightbulb" aria-hidden="true"></i> Projeto Sob Medida
                 </span>
-                <h2>Não achou o que procura? Vamos montar juntos.</h2>
-                <p>Conte o que você precisa e a nossa equipe indica o melhor caminho para o seu negócio.</p>
+                <h2>Seu próximo cliente pode estar procurando você agora.</h2>
+                <p>Seja um site profissional, uma landing page ou uma loja virtual completa, a Planno ajuda você a construir uma presença digital à altura do seu negócio.</p>
               </div>
 
               <a
@@ -570,7 +570,7 @@ export const PlanosPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="cta-contact-button btn-whatsapp-hover"
               >
-                Falar com um especialista <i className="fab fa-whatsapp" aria-hidden="true"></i>
+                Vamos conversar sobre seu projeto <i className="fab fa-whatsapp" aria-hidden="true"></i>
               </a>
             </div>
           </div>

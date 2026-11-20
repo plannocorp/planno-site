@@ -51,7 +51,6 @@ export const Home: React.FC = () => {
             <span className="panel-eyebrow">
               <span className="pulse-dot"></span> Destaque: Planno Store
             </span>
-            <span className="panel-tag">Chave na Mão</span>
           </div>
 
           <div className="interactive-dashboard">
@@ -195,13 +194,13 @@ export const Home: React.FC = () => {
 
             <div className="dash-footer">
               <div className="feature-chip">
-                <i className="fas fa-check" aria-hidden="true"></i> Domínio Incluso
+                <i className="fas fa-check" aria-hidden="true"></i> Domínio próprio
               </div>
               <div className="feature-chip">
                 <i className="fas fa-check" aria-hidden="true"></i> Mercado Pago
               </div>
               <div className="feature-chip">
-                <i className="fas fa-check" aria-hidden="true"></i> Painel Simples
+                <i className="fas fa-check" aria-hidden="true"></i> Painel simples
               </div>
             </div>
           </div>

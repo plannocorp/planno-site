@@ -16,6 +16,8 @@ import Projetos from './pages/projetos/projetos';
 import Planos from './pages/planos/planos';
 import Faq from './pages/faq/faq';
 import Contato from './pages/contato/contato';
+import Conversao from './pages/conversao/conversao';
+import SecaoPage from './pages/secao-page/secao-page';
 import { Footer } from './components/footer/footer';
 import { WhatsAppFloat } from './components/whatsapp-float/whatsapp-float';
 import { usePageMeta } from './hook/use-page-meta';
@@ -24,10 +26,14 @@ import PlanosPage from './pages/planos-page/planos-page';
 import TermosDeUso from './pages/termos-de-uso-page/termos-de-uso-page';
 import PoliticaPrivacidade from './pages/pdp-page/pdp-page';
 
+const SITE_TITLE = 'Planno | Sites, landing pages e lojas virtuais';
+const SITE_DESCRIPTION =
+  'Criamos sites modernos, estratégicos e personalizados para transformar sua presença digital em novas oportunidades de negócio. Landing pages, sites institucionais e a Planno Store.';
+
 const LandingPage: React.FC = () => {
   usePageMeta(
-    'Planno | Landing pages, sites institucionais e lojas virtuais',
-    'A Planno cria landing pages e sites institucionais sob medida e lojas virtuais com a Planno Store (a partir de R$ 129,90/mês), com hospedagem e manutenção.'
+    SITE_TITLE,
+    SITE_DESCRIPTION
   );
   return (
     <>
@@ -42,9 +48,7 @@ const LandingPage: React.FC = () => {
         <Diferenciais />
         <ComoFunciona />
         <Planos />
-        <Projetos />
-        <Faq />
-        <Contato />
+        <Conversao />
       </main>
       <Footer />
       <WhatsAppFloat />
@@ -62,6 +66,39 @@ export const App: React.FC = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/superadmin/*" element={<SuperadminRedirect />} />
         <Route path="/planos" element={<PlanosPage />} />
+        <Route
+          path="/projetos"
+          element={
+            <SecaoPage
+              title="Projetos | Planno"
+              description="Sites, landing pages e projetos que a Planno já entregou, no ar e funcionando."
+            >
+              <Projetos />
+            </SecaoPage>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <SecaoPage
+              title="Perguntas frequentes | Planno"
+              description="Dúvidas sobre sites, landing pages, Planno Store, pagamentos por Pix e cartão, domínio e suporte."
+            >
+              <Faq />
+            </SecaoPage>
+          }
+        />
+        <Route
+          path="/contato"
+          element={
+            <SecaoPage
+              title="Contato | Planno"
+              description="Vamos conversar sobre seu projeto: site profissional, landing page ou loja virtual completa."
+            >
+              <Contato />
+            </SecaoPage>
+          }
+        />
         <Route path="/termos-de-uso" element={<TermosDeUso />} />
         <Route path="/politicas-de-privacidade" element={<PoliticaPrivacidade />} />
         <Route path="*" element={<LandingPage />} />

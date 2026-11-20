@@ -10,32 +10,37 @@ const faqItems: FaqItem[] = [
   {
     question: 'Quanto custa um site ou uma loja virtual?',
     answer:
-      'Landing pages e sites institucionais são orçados de acordo com o que você precisa, e você sabe o valor antes de fechar. A Planno Store parte de R$ 129,90 por mês.',
+      'Sites e Landing Pages partem de R$ 65,90/mês, com hospedagem, SSL e suporte técnico conforme o plano contratado. A Planno Store parte de R$ 129,90/mês, com gestão de produtos e integração de pagamentos. O desenvolvimento de cada site é planejado com você, e você conhece o valor antes de começar.',
   },
   {
-    question: 'Preciso entender de tecnologia para ter a loja virtual?',
+    question: 'Preciso entender de tecnologia?',
     answer:
-      'Não. Nossa equipe cuida da configuração, da integração de pagamento e da implantação inicial. Você recebe a loja pronta e aprende a usar o painel.',
+      'Não. Cuidamos da parte técnica para você focar no seu negócio. Desenvolvemos, personalizamos e configuramos sua solução, publicamos e orientamos você sobre o uso.',
   },
   {
     question: 'Consigo usar meu próprio domínio?',
     answer:
-      'Sim. Configuramos o seu site no domínio da sua marca. A loja nasce em um endereço da Planno e pode usar domínio próprio, que é opcional.',
+      'Sim. Sites, landing pages e a Planno Store funcionam com domínio próprio e conexão segura (SSL).',
   },
   {
     question: 'Como funcionam os pagamentos na Planno Store?',
     answer:
-      'O cliente paga pelo Mercado Pago, com Pix, cartão ou boleto, e o valor cai direto na conta do lojista. Você conecta a sua conta do Mercado Pago pelo painel da loja.',
+      'Os pagamentos são feitos por Pix e cartão via Mercado Pago, com checkout integrado à loja. O valor cai direto na sua conta do Mercado Pago, e você acompanha os pedidos em um painel simples.',
   },
   {
-    question: 'O que a hospedagem e manutenção incluem?',
+    question: 'O que está incluso nos planos de Sites e Landing Pages?',
     answer:
-      'Hospedagem, certificado SSL, backups e suporte técnico da Planno, a partir de R$ 65,90 por mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
+      'Hospedagem, SSL e suporte técnico conforme o plano contratado, a partir de R$ 65,90/mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
+  },
+  {
+    question: 'A Planno some depois de entregar o projeto?',
+    answer:
+      'Não. Você conversa com quem entende do desenvolvimento, acompanha o projeto de perto e conta com atendimento humano nas etapas do projeto e no suporte previsto em seu plano.',
   },
   {
     question: 'Posso ver trabalhos que a Planno já fez?',
     answer:
-      'Sim. Na seção Projetos você acessa sites que já estão no ar. Se quiser algo parecido, é só chamar no WhatsApp.',
+      'Sim. Na página Projetos você acessa sites que já estão no ar. Se quiser algo parecido, é só conversar com a gente.',
   },
 ];
 
@@ -45,7 +50,7 @@ export const Faq: React.FC = () => {
       <div className="faq-container">
         <div className="section-head" data-reveal="fade-up">
           <span className="eyebrow">Perguntas frequentes</span>
-          <h2>Tire suas dúvidas antes de decidir</h2>
+          <h1>Tire suas dúvidas antes de decidir</h1>
         </div>
 
         <div className="faq-list" data-reveal="fade-up">

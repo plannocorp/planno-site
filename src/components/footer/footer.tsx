@@ -16,20 +16,20 @@ interface SocialLink {
 
 const quickLinks: QuickLink[] = [
   { label: 'Início', href: '#home' },
-  { label: 'Soluções', href: '#solucoes' },
+  { label: 'Serviços', href: '#solucoes' },
   { label: 'Planno Store', href: '#planno-store' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Valores', href: '#planos' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Como funciona', href: '#como-funciona' },
+  { label: 'Preços', href: '/planos' },
+  { label: 'Projetos', href: '/projetos' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contato', href: '/contato' },
 ];
 
 const solutions: string[] = [
-  'Landing pages',
+  'Landing Pages',
   'Sites institucionais',
-  'Blogs e páginas pessoais',
   'Lojas virtuais (Planno Store)',
-  'Hospedagem e manutenção',
+  'Hospedagem, SSL e suporte técnico',
 ];
 
 const socialLinks: SocialLink[] = [
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
             <img src={logoImg} alt="Planno" className="footer-logo" width={90} height={60} loading="lazy" />
           </a>
           <p className="footer-description">
-            Sites, landing pages e lojas virtuais com hospedagem, manutenção e suporte para o seu negócio vender mais.
+            Design com propósito. Tecnologia com estratégia. Sites, landing pages e lojas virtuais para transformar sua presença digital em novas oportunidades de negócio.
           </p>
         </div>
 
@@ -80,9 +80,15 @@ export const Footer: React.FC = () => {
           <ul className="footer-list">
             {quickLinks.map((item) => (
               <li key={item.href}>
-                <a href={anchor(item.href)} className="footer-link">
-                  {item.label}
-                </a>
+                {item.href.startsWith('/') ? (
+                  <Link to={item.href} className="footer-link">
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a href={anchor(item.href)} className="footer-link">
+                    {item.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

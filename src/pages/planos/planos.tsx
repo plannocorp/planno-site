@@ -34,7 +34,6 @@ export const Planos: React.FC = () => {
     <section className="section planos" id="planos" aria-labelledby="planos-titulo">
       <div className="section-inner">
         <div className="section-head" data-reveal="fade-up">
-          <span className="eyebrow">Preços</span>
           <h2 id="planos-titulo">O próximo passo do seu negócio cabe no seu planejamento.</h2>
         </div>
 

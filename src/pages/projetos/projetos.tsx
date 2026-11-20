@@ -47,8 +47,8 @@ export const Projetos: React.FC = () => {
       <div className="projetos-container">
         <div className="section-head" data-reveal="fade-up">
           <span className="eyebrow">Projetos</span>
-          <h2>Veja o que já entregamos</h2>
-          <p>Projetos reais, no ar e funcionando. Navegue e imagine o seu.</p>
+          <h1>Veja o que já entregamos</h1>
+          <p>Projetos reais, no ar e funcionando. Cada um com identidade própria, pensado para o momento do negócio.</p>
         </div>
 
         <div className="projetos-grid">
@@ -97,14 +97,14 @@ export const Projetos: React.FC = () => {
         </div>
 
         <div className="projetos-cta" data-reveal="fade-up">
-          <p>Gostou? O próximo projeto pode ser o seu.</p>
+          <p>Seu próximo cliente pode estar procurando você agora.</p>
           <a
             className="btn btn-whatsapp"
             href={whatsappLink(WHATSAPP_MESSAGES.projeto)}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero um site assim
+            <i className="fab fa-whatsapp" aria-hidden="true"></i> Vamos conversar sobre seu projeto
           </a>
         </div>
       </div>

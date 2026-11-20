@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
 import logoImg from '../../assets/Logo.png';
+import { Link } from 'react-router-dom';
 import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
 interface NavItem {
   label: string;
+  /** Âncora de uma seção da home (#id) ou rota própria (/rota). */
   href: string;
 }
 
 const navItems: NavItem[] = [
-  { label: 'Início', href: '#home' },
-  { label: 'Soluções', href: '#solucoes' },
+  { label: 'Serviços', href: '#solucoes' },
   { label: 'Planno Store', href: '#planno-store' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Planos', href: '#planos' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Como funciona', href: '#como-funciona' },
+  { label: 'Preços', href: '#planos' },
+  { label: 'Projetos', href: '/projetos' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contato', href: '/contato' },
 ];
 
 export const Header: React.FC = () => {
@@ -51,7 +53,7 @@ export const Header: React.FC = () => {
 
   // ScrollSpy Inteligente: auto-ordena pelas posições reais no DOM
   useEffect(() => {
-    const sectionIds = ['home', 'solucoes', 'planno-store', 'projetos', 'planos', 'faq', 'contato'];
+    const sectionIds = ['home', 'apresentacao', 'solucoes', 'planno-store', 'problemas-e-solucoes', 'diferenciais', 'como-funciona', 'planos', 'contato'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 180; // Ponto focal abaixo do header
@@ -62,14 +64,6 @@ export const Header: React.FC = () => {
         return;
       }
 
-      // Fim absoluto da página (Contato)
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 60
-      ) {
-        setActiveItem('#contato');
-        return;
-      }
 
       // Obtém as seções existentes e ordena pela posição real na página
       const existingSections = sectionIds
@@ -113,24 +107,30 @@ export const Header: React.FC = () => {
           <ul className="header-nav-list">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={`header-nav-link ${activeItem === item.href ? 'active' : ''}`}
-                  aria-current={activeItem === item.href ? 'true' : undefined}
-                  onClick={() => setActiveItem(item.href)}
-                >
-                  {item.label}
-                </a>
+                {item.href.startsWith('/') ? (
+                  <Link to={item.href} className="header-nav-link">
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`header-nav-link ${activeItem === item.href ? 'active' : ''}`}
+                    aria-current={activeItem === item.href ? 'true' : undefined}
+                    onClick={() => setActiveItem(item.href)}
+                  >
+                    {item.label}
+                  </a>
+                )}
               </li>
             ))}
             <li>
               <a
-                href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+                href={whatsappLink(WHATSAPP_MESSAGES.site)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="header-cta"
               >
-                Quero meu orçamento
+                Quero meu novo site
               </a>
             </li>
           </ul>
@@ -161,25 +161,31 @@ export const Header: React.FC = () => {
         <ul className="mobile-nav-list">
           {navItems.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                className={`mobile-nav-link ${activeItem === item.href ? 'active' : ''}`}
-                aria-current={activeItem === item.href ? 'true' : undefined}
-                onClick={() => closeMenu(item.href)}
-              >
-                {item.label}
-              </a>
+              {item.href.startsWith('/') ? (
+                <Link to={item.href} className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  href={item.href}
+                  className={`mobile-nav-link ${activeItem === item.href ? 'active' : ''}`}
+                  aria-current={activeItem === item.href ? 'true' : undefined}
+                  onClick={() => closeMenu(item.href)}
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
           <li className="mobile-cta-wrapper">
             <a
-              href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+              href={whatsappLink(WHATSAPP_MESSAGES.site)}
               target="_blank"
               rel="noopener noreferrer"
               className="header-cta mobile-cta"
               onClick={() => setIsMenuOpen(false)}
             >
-              Quero meu orçamento
+              Quero meu novo site
             </a>
           </li>
         </ul>

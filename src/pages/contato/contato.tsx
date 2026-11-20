@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './contato.css';
-import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
+import { whatsappLink } from '../../lib/contact';
 
 const interests = [
-  'Landing page',
+  'Landing Page',
   'Site institucional',
   'Planno Store (loja virtual)',
-  'Hospedagem e manutenção',
+  'Hospedagem, SSL e suporte técnico',
   'Outro assunto',
 ];
 
@@ -42,41 +42,32 @@ export const Contato: React.FC = () => {
   };
 
   return (
-    <section className="section contato" id="contato" aria-labelledby="contato-titulo">
+    <section className="section contato" id="contato">
       <div className="contato-container">
-        <div className="section-head contato-head" data-reveal="fade-up">
+        <div className="section-head" data-reveal="fade-up">
           <span className="eyebrow">Contato</span>
-          <h2 id="contato-titulo">Seu próximo cliente pode estar procurando você agora.</h2>
-          <p className="contato-question">A pergunta é: o que ele vai encontrar?</p>
+          <h1>Vamos conversar sobre seu projeto</h1>
           <p>
             Seja um site profissional, uma landing page ou uma loja virtual completa, a Planno ajuda você a construir uma presença digital à altura do seu negócio.
           </p>
-          <a
-            className="btn btn-primary"
-            href={whatsappLink(WHATSAPP_MESSAGES.geral)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fab fa-whatsapp" aria-hidden="true"></i> Vamos conversar sobre seu projeto
-          </a>
         </div>
 
         <div className="contato-layout">
           <div className="contato-left-col">
             <div className="contact-info-card">
-              <h3 className="info-card-title">O que acontece depois do seu contato</h3>
+              <h2 className="info-card-title">O que acontece depois do seu contato</h2>
               <ul className="info-checklist">
                 <li>
                   <i className="fas fa-circle-check" aria-hidden="true"></i>
-                  <span>Respondemos pelo WhatsApp, com atendimento humano</span>
+                  <span>Você conta sua ideia e conversa com quem entende do desenvolvimento</span>
                 </li>
                 <li>
                   <i className="fas fa-circle-check" aria-hidden="true"></i>
-                  <span>Indicamos a melhor solução para o seu negócio</span>
+                  <span>Entendemos seu negócio, seus objetivos e o que você precisa</span>
                 </li>
                 <li>
                   <i className="fas fa-circle-check" aria-hidden="true"></i>
-                  <span>Você recebe um orçamento claro, sem surpresa</span>
+                  <span>Indicamos a solução certa para o momento do seu negócio</span>
                 </li>
               </ul>
             </div>
