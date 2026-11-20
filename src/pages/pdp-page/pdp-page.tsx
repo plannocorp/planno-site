@@ -19,10 +19,10 @@ export const PoliticaPrivacidade: React.FC = () => {
 
             <p className="legal-desc">
               Esta política explica como a Planno trata dados pessoais em seu site, formulários de
-              contato, negociações, contratação de sites, landing pages, hospedagem e ecommerces.
+              contato, negociações, contratação de sites, landing pages, lojas virtuais e hospedagem.
             </p>
 
-            <span className="legal-updated">Última atualização: abril de 2026</span>
+            <span className="legal-updated">Última atualização: novembro de 2026</span>
           </div>
         </section>
 

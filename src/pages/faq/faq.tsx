@@ -10,7 +10,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'Quanto custa um site ou uma loja virtual?',
     answer:
-      'Sites e Landing Pages partem de R$ 65,90/mês, com hospedagem, SSL e suporte técnico conforme o plano contratado. A Planno Store parte de R$ 129,90/mês, com gestão de produtos e integração de pagamentos. O desenvolvimento de cada site é planejado com você, e você conhece o valor antes de começar.',
+      'A hospedagem de sites e landing pages parte de R$ 65,90/mês, com SSL e suporte técnico conforme o plano contratado. A criação do site ou da landing page é orçada à parte, de acordo com o projeto, e você conhece o valor antes de começar. A Planno Store parte de R$ 129,90/mês, com gestão de produtos e integração de pagamentos.',
   },
   {
     question: 'Preciso entender de tecnologia?',
@@ -20,7 +20,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'Consigo usar meu próprio domínio?',
     answer:
-      'Sim. Sites, landing pages e a Planno Store funcionam com domínio próprio e conexão segura (SSL).',
+      'Sim. Sites e landing pages funcionam com o seu domínio, e todos os planos da Planno Store incluem domínio próprio e conexão segura (SSL).',
   },
   {
     question: 'Como funcionam os pagamentos na Planno Store?',
@@ -30,7 +30,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'O que está incluso nos planos de Sites e Landing Pages?',
     answer:
-      'Hospedagem, SSL e suporte técnico conforme o plano contratado, a partir de R$ 65,90/mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
+      'Hospedagem, SSL e suporte técnico conforme o plano contratado, a partir de R$ 65,90/mês. A criação do site é orçada à parte. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
   },
   {
     question: 'A Planno some depois de entregar o projeto?',

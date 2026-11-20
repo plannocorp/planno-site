@@ -19,10 +19,10 @@ export const TermosDeUsoPage: React.FC = () => {
 
             <p className="legal-desc">
               Estes termos regulam o acesso ao site da Planno e a contratação de serviços de sites,
-              landing pages, blogs, hospedagem, manutenção e ecommerces.
+              landing pages, sites institucionais, lojas virtuais (Planno Store) e hospedagem.
             </p>
 
-            <span className="legal-updated">Última atualização: abril de 2026</span>
+            <span className="legal-updated">Última atualização: novembro de 2026</span>
           </div>
         </section>
 
@@ -40,8 +40,8 @@ export const TermosDeUsoPage: React.FC = () => {
             <article className="legal-card">
               <h2 className="legal-card-title">2. Serviços oferecidos</h2>
               <ul className="legal-list">
-                <li><i className="fas fa-check" aria-hidden="true"></i> Desenvolvimento de landing pages, sites institucionais, blogs e páginas pessoais.</li>
-                <li><i className="fas fa-check" aria-hidden="true"></i> Criação e manutenção de ecommerces com planos Start, Pro e Premium.</li>
+                <li><i className="fas fa-check" aria-hidden="true"></i> Desenvolvimento de landing pages e sites institucionais.</li>
+                <li><i className="fas fa-check" aria-hidden="true"></i> Implantação e manutenção de lojas virtuais na Planno Store, com planos Inicial, Intermediário e Avançado.</li>
                 <li><i className="fas fa-check" aria-hidden="true"></i> Hospedagem, domínio, SSL, manutenção, suporte e automações conforme plano contratado.</li>
                 <li><i className="fas fa-check" aria-hidden="true"></i> Serviços personalizados definidos em proposta, contrato ou escopo específico.</li>
               </ul>
@@ -59,7 +59,7 @@ export const TermosDeUsoPage: React.FC = () => {
             <article className="legal-card">
               <h2 className="legal-card-title">4. Planos, mensalidade e recursos</h2>
               <p className="legal-card-text">
-                Planos de hospedagem e ecommerce possuem recursos próprios, como limites de produtos,
+                Planos de hospedagem e da Planno Store possuem recursos próprios, como limites de produtos,
                 e-mails, notificações, backups, suporte e alterações mensais. A disponibilidade de
                 domínio depende de verificação no momento da contratação.
               </p>

@@ -150,6 +150,7 @@ const ecommercePlans: EcommercePlan[] = [
       'Controle de estoque',
       'Carrinho, cupons e formas de entrega',
       'Pagamentos por Pix e cartão via Mercado Pago',
+      'Domínio próprio e conexão segura',
       'Implantação feita pela equipe Planno',
     ],
   },
@@ -184,7 +185,7 @@ const ecommercePlans: EcommercePlan[] = [
 export const PlanosPage: React.FC = () => {
   usePageMeta(
     'Planos e valores | Planno',
-    'Sites e Landing Pages a partir de R$ 65,90/mês, com hospedagem, SSL e suporte técnico. Planno Store a partir de R$ 129,90/mês, com gestão de produtos e integração de pagamentos.'
+    'Hospedagem de sites e landing pages a partir de R$ 65,90/mês, com SSL e suporte técnico; criação sob orçamento. Planno Store a partir de R$ 129,90/mês, com gestão de produtos e integração de pagamentos.'
   );
   const [searchParams, setSearchParams] = useSearchParams();
   const tab = searchParams.get('aba');
@@ -232,7 +233,7 @@ export const PlanosPage: React.FC = () => {
             </h1>
 
             <p className="pricing-hero-desc">
-              A solução certa para o momento do seu negócio: sites e landing pages a partir de R$ 65,90/mês e a Planno Store a partir de R$ 129,90/mês.
+              A solução certa para o momento do seu negócio: hospedagem de sites e landing pages a partir de R$ 65,90/mês e a Planno Store a partir de R$ 129,90/mês.
             </p>
 
             <div className="hero-control-dock">

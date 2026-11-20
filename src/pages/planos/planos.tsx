@@ -65,6 +65,10 @@ export const Planos: React.FC = () => {
             </article>
           ))}
         </div>
+
+        <p className="planos-note">
+          O valor de Sites e Landing Pages corresponde à hospedagem. A criação do site ou da landing page é orçada à parte, de acordo com o projeto.
+        </p>
       </div>
     </section>
   );

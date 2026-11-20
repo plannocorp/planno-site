@@ -82,3 +82,12 @@
     min-height: 0;
   }
 }
+
+.planos-note {
+  max-width: 640px;
+  margin: 28px auto 0;
+  text-align: center;
+  color: var(--lightblue);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
