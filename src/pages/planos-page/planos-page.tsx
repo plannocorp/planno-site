@@ -41,7 +41,7 @@ const hostingPlans: HostingPlan[] = [
     name: 'Básico',
     badge: 'Início Seguro',
     desc: 'Ideal para sites institucionais, blogs e páginas pessoais de autoridade.',
-    priceMonthly: 65.99,
+    priceMonthly: 65.9,
     priceAnnualTotal: 672.99,
     priceAnnualMonthlyEquivalent: 56.08,
     sla: 'Suporte em até 24h',

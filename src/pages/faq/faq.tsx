@@ -30,7 +30,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'O que a hospedagem e manutenção incluem?',
     answer:
-      'Hospedagem, certificado SSL, backups e suporte técnico da Planno, a partir de R$ 65,99 por mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
+      'Hospedagem, certificado SSL, backups e suporte técnico da Planno, a partir de R$ 65,90 por mês. Os planos têm limites e prazos de atendimento diferentes, que você compara na página de planos.',
   },
   {
     question: 'Posso ver trabalhos que a Planno já fez?',
