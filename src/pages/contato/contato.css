@@ -55,9 +55,6 @@
   margin-top: 4px;
 }
 
-.contato-direct {
-  width: 100%;
-}
 
 .contact-social-card {
   display: flex;
@@ -162,5 +159,22 @@
   }
   .contact-social-card {
     padding: 18px;
+  }
+}
+
+.contato-head .contato-question {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contato-head .btn {
+  margin-top: 28px;
+}
+
+@media screen and (max-width: 520px) {
+  .contato-head .btn {
+    width: 100%;
   }
 }

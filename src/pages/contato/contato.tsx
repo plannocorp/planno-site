@@ -42,14 +42,23 @@ export const Contato: React.FC = () => {
   };
 
   return (
-    <section className="section contato" id="contato">
+    <section className="section contato" id="contato" aria-labelledby="contato-titulo">
       <div className="contato-container">
-        <div className="section-head" data-reveal="fade-up">
+        <div className="section-head contato-head" data-reveal="fade-up">
           <span className="eyebrow">Contato</span>
-          <h2>Pronto para vender mais? Fale com a Planno</h2>
+          <h2 id="contato-titulo">Seu próximo cliente pode estar procurando você agora.</h2>
+          <p className="contato-question">A pergunta é: o que ele vai encontrar?</p>
           <p>
-            Conte a sua ideia e receba um orçamento. O atendimento é direto, pelo WhatsApp.
+            Seja um site profissional, uma landing page ou uma loja virtual completa, a Planno ajuda você a construir uma presença digital à altura do seu negócio.
           </p>
+          <a
+            className="btn btn-primary"
+            href={whatsappLink(WHATSAPP_MESSAGES.geral)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp" aria-hidden="true"></i> Vamos conversar sobre seu projeto
+          </a>
         </div>
 
         <div className="contato-layout">
@@ -70,14 +79,6 @@ export const Contato: React.FC = () => {
                   <span>Você recebe um orçamento claro, sem surpresa</span>
                 </li>
               </ul>
-              <a
-                className="btn btn-whatsapp contato-direct"
-                href={whatsappLink(WHATSAPP_MESSAGES.geral)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero meu orçamento
-              </a>
             </div>
 
             <div className="contact-social-card">

@@ -6,9 +6,11 @@ import { ScrollRevealObserver } from './hook/use-scroll-reveal';
 
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
-import { CertificationBar } from './components/certification-bar/certification-bar';
+import { Apresentacao } from './pages/apresentacao/apresentacao';
 import { Oferecimento } from './pages/oferecimento/oferecimento';
 import StoreDetails from './pages/store-datails/store-details';
+import ProblemasSolucoes from './pages/problemas-solucoes/problemas-solucoes';
+import Diferenciais from './pages/diferenciais/diferenciais';
 import ComoFunciona from './pages/como-funciona/como-funciona';
 import Projetos from './pages/projetos/projetos';
 import Planos from './pages/planos/planos';
@@ -33,12 +35,14 @@ const LandingPage: React.FC = () => {
       <Header />
       <main id="conteudo">
         <Home />
-        <CertificationBar />
+        <Apresentacao />
         <Oferecimento />
         <StoreDetails />
-        <Projetos />
+        <ProblemasSolucoes />
+        <Diferenciais />
         <ComoFunciona />
         <Planos />
+        <Projetos />
         <Faq />
         <Contato />
       </main>

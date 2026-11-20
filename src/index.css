@@ -331,3 +331,16 @@ main {
 section[id] {
   scroll-margin-top: 84px;
 }
+
+/* CTA centralizado ao final de uma seção */
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 520px) {
+  .section-cta .btn {
+    width: 100%;
+  }
+}

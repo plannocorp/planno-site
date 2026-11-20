@@ -1,126 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './store-details.css';
 import { whatsappLink, WHATSAPP_MESSAGES } from '../../lib/contact';
 
-interface Feature {
+interface Highlight {
   icon: string;
-  title: string;
-  description: string;
+  text: string;
 }
 
-const journey: Feature[] = [
-  {
-    icon: 'fas fa-list',
-    title: 'Catálogo',
-    description: 'Vitrine organizada, com fotos, preços e categorias que facilitam a escolha.',
-  },
-  {
-    icon: 'fas fa-cart-shopping',
-    title: 'Carrinho',
-    description: 'O cliente adiciona os produtos, aplica cupons e segue para o pagamento.',
-  },
-  {
-    icon: 'fas fa-truck',
-    title: 'Frete',
-    description: 'Você define as formas de entrega e o valor de cada uma, e o cliente escolhe na hora de comprar.',
-  },
-  {
-    icon: 'fas fa-credit-card',
-    title: 'Pagamento',
-    description: 'O cliente paga pelo Mercado Pago (Pix, cartão ou boleto) e o dinheiro vai para a sua conta.',
-  },
+const highlights: Highlight[] = [
+  { icon: 'fas fa-credit-card', text: 'Pagamentos por Pix e cartão via Mercado Pago.' },
+  { icon: 'fas fa-boxes-stacked', text: 'Gestão de produtos, estoque e pedidos.' },
+  { icon: 'fas fa-lock', text: 'Domínio próprio e conexão segura.' },
+  { icon: 'fas fa-palette', text: 'Layout personalizado para sua marca.' },
+  { icon: 'fas fa-headset', text: 'Suporte humano durante a implantação.' },
 ];
-
-const admin: Feature[] = [
-  {
-    icon: 'fas fa-boxes-stacked',
-    title: 'Estoque',
-    description: 'Saiba o que está disponível e evite vender o que já acabou.',
-  },
-  {
-    icon: 'fas fa-receipt',
-    title: 'Pedidos',
-    description: 'Acompanhe pagamento, preparo, envio com rastreio e entrega. O cliente vê o andamento do pedido.',
-  },
-  {
-    icon: 'fas fa-chart-column',
-    title: 'Resumo das vendas',
-    description: 'Veja o que mais vende e como a sua loja está indo.',
-  },
-  {
-    icon: 'fas fa-tags',
-    title: 'Cupons e promoções',
-    description: 'Crie promoções e atraia mais compradores quando quiser.',
-  },
-];
-
-const FeatureList: React.FC<{ items: Feature[] }> = ({ items }) => (
-  <ul className="store-feature-list">
-    {items.map((f) => (
-      <li key={f.title}>
-        <span className="store-feature-icon">
-          <i className={f.icon} aria-hidden="true"></i>
-        </span>
-        <div>
-          <h4>{f.title}</h4>
-          <p>{f.description}</p>
-        </div>
-      </li>
-    ))}
-  </ul>
-);
 
 export const StoreDetails: React.FC = () => {
   return (
-    <section className="section store-details" id="planno-store">
-      <div className="section-inner">
-        <div className="section-head" data-reveal="fade-up">
+    <section className="section store-details" id="planno-store" aria-labelledby="store-titulo">
+      <div className="section-inner store-layout">
+        <div className="store-intro" data-reveal="fade-up">
           <span className="eyebrow">Planno Store</span>
-          <h2>Sua loja vendendo, sem você anotar pedido na mão</h2>
+          <h2 id="store-titulo">Você vende. A Planno cuida da tecnologia.</h2>
           <p>
-            Chega de pedido por mensagem, planilha e conferência de pagamento. Na Planno Store o cliente compra sozinho e você acompanha tudo em um painel simples.
+            Chega de organizar pedidos em conversas, conferir pagamentos manualmente e depender do direct para realizar suas vendas.
           </p>
+          <p>
+            Com a Planno Store, você tem uma loja virtual personalizada, com catálogo de produtos, pagamentos integrados e um painel simples para acompanhar seu negócio.
+          </p>
+          <p>
+            Nós cuidamos da implantação para você dedicar seu tempo ao que realmente importa: vender e crescer.
+          </p>
+          <a
+            className="btn btn-primary"
+            href={whatsappLink(WHATSAPP_MESSAGES.store)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero minha loja virtual
+          </a>
         </div>
 
-        <div className="store-columns">
-          <div className="store-col" data-reveal="fade-up">
-            <h3 className="store-col-title">
-              <span>Para o seu cliente</span>
-              Comprar é fácil e rápido
-            </h3>
-            <FeatureList items={journey} />
-          </div>
-
-          <div className="store-col" data-reveal="fade-up" data-delay="100">
-            <h3 className="store-col-title">
-              <span>Para você</span>
-              Tudo sob controle em um só lugar
-            </h3>
-            <FeatureList items={admin} />
-          </div>
-        </div>
-
-        <div className="store-setup" data-reveal="fade-up">
-          <div>
-            <h3>Nós montamos a sua loja. Você só vende.</h3>
-            <p>
-              Cuidamos do design e da publicação da loja. Você cadastra seus produtos e conecta a sua conta do Mercado Pago pelo painel, com um passo a passo, e começa a receber pedidos.
-            </p>
-          </div>
-          <div className="store-setup-actions">
-            <a
-              className="btn btn-primary"
-              href={whatsappLink(WHATSAPP_MESSAGES.store)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-whatsapp" aria-hidden="true"></i> Quero minha loja
-            </a>
-            <Link className="btn btn-ghost" to="/planos?aba=store">
-              Ver planos da Store
-            </Link>
-          </div>
+        <div className="store-highlights" data-reveal="fade-up" data-delay="100">
+          <h3>Destaques</h3>
+          <ul className="store-feature-list">
+            {highlights.map((h) => (
+              <li key={h.text}>
+                <span className="store-feature-icon">
+                  <i className={h.icon} aria-hidden="true"></i>
+                </span>
+                <p>{h.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
